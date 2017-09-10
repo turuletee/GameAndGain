@@ -34,7 +34,7 @@
 				<input type="text" class="form-control" placeholder="Search">
 			</form>
 			<ul class="nav navbar-nav navbar-right">
-				<li><a href="/StudentEnrollmentWithREST">Home</a></li>
+				<li><a href="/GameAndGain">Home</a></li>
 				<li><a href="signup">Signup</a></li>
 				<li class="active"><a href="login">Login</a></li>
 				<li class="dropdown"><a href="#" class="dropdown-toggle"
@@ -58,7 +58,7 @@
 		</div>
 		<div class="panel-body">
 			<div class="alert alert-dismissable alert-danger">
-				<button type="button" class="close" data-dismiss="alert">×</button>
+				<button type="button" class="close" data-dismiss="alert">Ã—</button>
 				<strong>Oh snap!</strong> Something is wrong. Change a few things up
 				and try submitting again.
 			</div>
