@@ -1,36 +1,50 @@
 package com.github.openplay.model.impl;
 
-import javax.persistence.Entity;
-
-
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Past;
+import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 
+import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Component;
 
 import com.github.openplay.model.InterestInterface;
 
+import java.io.Serializable;
+import java.util.Set;
+
+import javax.persistence.*;
+
 @Component
-@XmlRootElement(name="interests")
+@XmlRootElement(name="interest")
 @Entity
-@Table(name="interests")
-public class Interest  implements InterestInterface {
+@Table(name="interest")
+public class Campaign implements CampaignInterface {
+	
 	@Id
 	@GeneratedValue
-	private Long interestId;
+	private Long id;
 	
 	@NotEmpty
 	private String description;
+	private Set<Campaign> campaign;
 
-	public Long getInterestId() {
-		return interestId;
+	public Interest(){
+
 	}
 
-	public void setInterestId(Long interestId) {
-		this.interestId = interestId;
+	public Interest(String description){
+		this.description = description;
+	}
+
+	public Long getId(){
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public String getDescription() {
@@ -40,7 +54,13 @@ public class Interest  implements InterestInterface {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	
-	
-	
+
+	@OneToMany(mappedBy = 'interest')
+	public Set<Campaign> getCampaigns(){
+		return campaign;
+	}
+
+	public void setCampaign(Set<Campaign> campaign){
+		this.campaign = campaign;
+	}
 }
