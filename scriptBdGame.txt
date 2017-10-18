@@ -73,7 +73,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `game`.`users_Receives_Badges`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `game`.`sers_Receives_Badges` (
+CREATE TABLE IF NOT EXISTS `game`.`users_Receives_Badges` (
 	`idUsers_Receives_Badges` INT NOT NULL AUTO_INCREMENT,
 	`users_UserId` INT NOT NULL,
 	`badges_BadgeId` INT NOT NULL,
@@ -550,3 +550,4 @@ INSERT INTO `game`.`campaign_Types` (description) VALUES ('Educative');
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+
