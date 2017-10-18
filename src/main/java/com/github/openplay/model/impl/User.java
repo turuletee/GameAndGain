@@ -1,5 +1,10 @@
 package com.github.openplay.model.impl;
 
+import com.github.openplay.model.InterestInterface;
+
+
+
+
 import java.util.Date;
 
 import javax.persistence.Entity;
@@ -17,13 +22,14 @@ import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Component;
 
 import com.github.openplay.model.UserInterface;
+import com.github.openplay.model.RoleInterface;
 
 
 @Component
 @XmlRootElement(name="users")
 @Entity
 @Table(name="users")
-public class User implements UserInterface {
+public class User implements UserInterface, InterestInterface,RoleInterface {
 	
 	@Id
 	@GeneratedValue
@@ -149,5 +155,41 @@ public class User implements UserInterface {
 
 	public void setRoles_RoleId(int roles_RoleId) {
 		this.roles_RoleId = roles_RoleId;
+	}
+
+	@Override
+	public Long getRoleId() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void setRoleId(Long roleId) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public Long getInterestId() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void setInterestId(Long interestId) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public String getDescription() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void setDescription(String description) {
+		// TODO Auto-generated method stub
+		
 	}
 }
