@@ -1,13 +1,16 @@
 package com.github.openplay.model;
 
-public interface InterestInterface{
+import java.util.Date;
+
+public interface DifficultiesInterface {
 
 	public Long getId();
 
-	public void setId(Long id);
+	public void setId(Long difficultyId);
 
 	public String getDescription();
 
 	public void setDescription(String description);
 
 }
+

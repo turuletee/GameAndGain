@@ -2,6 +2,11 @@ package com.github.openplay.model;
 
 import java.util.Date;
 
+import com.github.openplay.model.impl.CampaignStates;
+import com.github.openplay.model.impl.CampaignTypes;
+import com.github.openplay.model.impl.Interest;
+import com.github.openplay.model.impl.User;
+
 public interface CampaignInterface {
 
 	public Long getId();
@@ -12,9 +17,9 @@ public interface CampaignInterface {
 
 	public void setName(String name);
 
-	public Int getMaxScore();
+	public Integer getMaxScore();
 
-	public void setMaxScore(Int maxScore);
+	public void setMaxScore(Integer maxScore);
 
 	public String getDescription();
 
@@ -30,13 +35,13 @@ public interface CampaignInterface {
 
 	// Fk functions
 
-	public CampaignState getCampaignState();
+	public CampaignStates getCampaignState();
 
-	public void setCampaignState(CampaignState campaignState);
+	public void setCampaignState(CampaignStates campaignState);
 
-	public CampaignType getCampaignType();
+	public CampaignTypes getCampaignType();
 
-	public void setType(CampaignType campaignType);
+	public void setType(CampaignTypes campaignType);
 
 	public Interest getInterest();
 
@@ -46,9 +51,9 @@ public interface CampaignInterface {
 
 	public void setUser(User user);
 
-	public Project getProject();
+	//public Project getProject();
 
-	public void setProject(Project project);
+	//public void setProject(Project project);
 	
 
 }
