@@ -32,7 +32,7 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `game`.`Users`
+-- Table `game`.`users`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `game`.`users` (
 	`userId` INT NOT NULL AUTO_INCREMENT,
@@ -211,88 +211,6 @@ CREATE TABLE IF NOT EXISTS `game`.`game_Mission` (
 ENGINE = InnoDB;
 
 -- -----------------------------------------------------
--- Table `game`.`game_Questions`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `game`.`game_Questions` (
-	`idGame_Questions` INT NOT NULL AUTO_INCREMENT,
-	`state_idState` INT NOT NULL,
-	`idCampaign` INT NOT NULL,
-	`idUser` INT NOT NULL,
-	`idMission` INT NOT NULL,
-	PRIMARY KEY (`idGame_Questions`),
-	CONSTRAINT `fk_Game_Questions_State1`
-		FOREIGN KEY (`state_idState`)
-		REFERENCES `game`.`game_State` (`idState`)
-		ON DELETE NO ACTION
-		ON UPDATE NO ACTION,
-	CONSTRAINT `fk_Game_Questions_Campaigns1`
-		FOREIGN KEY (`idCampaign`)
-		REFERENCES `game`.`campaigns` (`campaignsId`)
-		ON DELETE NO ACTION
-		ON UPDATE NO ACTION,
-	CONSTRAINT `fk_Game_Questions_User1`
-		FOREIGN KEY (`idUser`)
-		REFERENCES `game`.`users` (`userId`)
-		ON DELETE NO ACTION
-		ON UPDATE NO ACTION,
-	CONSTRAINT `fk_Game_Questions_Mission1`
-		FOREIGN KEY (`idMission`)
-		REFERENCES `game`.`mission` (`missionId`)
-		ON DELETE NO ACTION
-		ON UPDATE NO ACTION)
-ENGINE = InnoDB;
-
--- -----------------------------------------------------
--- Table `game`.`campaigns`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `game`.`campaigns` (
-	`campaignsId` INT NOT NULL AUTO_INCREMENT,
-	`name` VARCHAR(70) NOT NULL,
-	`maxScore` INT NOT NULL,
-	`startDate` DATE NOT NULL,
-	`endDate` DATE NOT NULL,
-	`description` VARCHAR(300) NOT NULL,
-	`interests_InterestId` INT NOT NULL,
-	`game_Campaign_idGame_Campaign` INT NOT NULL,
-	`game_Mission_idGame_Mission` INT NOT NULL,
-	`game_Questions_idGame_Questions` INT NOT NULL,
-	`campaign_Types_Campaign_TypeId` INT NOT NULL,
-	`campaign_States_Campaign_StateId` INT NOT NULL,
-	PRIMARY KEY (`campaignsId`),
-	CONSTRAINT `fk_Campaigns_Interests1`
-		FOREIGN KEY (`interests_InterestId`)
-		REFERENCES `game`.`interests` (`interestId`)
-		ON DELETE NO ACTION
-		ON UPDATE NO ACTION,
-	CONSTRAINT `fk_Campaigns_Game_Campaign1`
-		FOREIGN KEY (`game_Campaign_idGame_Campaign`)
-		REFERENCES `game`.`game_Campaign` (`idGame_Campaign`)
-		ON DELETE NO ACTION
-		ON UPDATE NO ACTION,
-	CONSTRAINT `fk_Campaigns_Game_Mission1`
-		FOREIGN KEY (`game_Mission_idGame_Mission`)
-		REFERENCES `game`.`game_Mission` (`idGame_Mission`)
-		ON DELETE NO ACTION
-		ON UPDATE NO ACTION,
-	CONSTRAINT `fk_Campaigns_Game_Questions1`
-		FOREIGN KEY (`game_Questions_idGame_Questions`)
-		REFERENCES `game`.`game_Questions` (`idGame_Questions`)
-		ON DELETE NO ACTION
-		ON UPDATE NO ACTION,
-	CONSTRAINT `fk_Campaigns_Campaign_Types1`
-		FOREIGN KEY (`campaign_Types_Campaign_TypeId`)
-		REFERENCES `game`.`campaign_Types` (`campaign_TypeId`)
-		ON DELETE NO ACTION
-		ON UPDATE NO ACTION,
-	CONSTRAINT `fk_Campaigns_Campaign_States1`
-		FOREIGN KEY (`campaign_States_Campaign_StateId`)
-		REFERENCES `game`.`campaign_States` (`campaign_StateId`)
-		ON DELETE NO ACTION
-		ON UPDATE NO ACTION)
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
 -- Table `game`.`missions`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `game`.`missions` (
@@ -328,8 +246,53 @@ CREATE TABLE IF NOT EXISTS `game`.`questions` (
 	`questionId` INT NOT NULL AUTO_INCREMENT,
 	`question` VARCHAR(300) NOT NULL,
 	`score` INT ZEROFILL NOT NULL,
-	PRIMARY KEY (`questionId`))
+	`missionId` INT NOT NULL,
+	PRIMARY KEY (`questionId`),
+CONSTRAINT `fk_Missions_missions1`
+		FOREIGN KEY (`missionId`)
+		REFERENCES `game`.` missions` (`missionId `)
+		ON DELETE NO ACTION
+		ON UPDATE NO ACTION)
 ENGINE = InnoDB;
+
+-- -----------------------------------------------------
+-- Table `game`.`game_Questions`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `game`.`game_Questions` (
+	`idGame_Questions` INT NOT NULL AUTO_INCREMENT,
+	`state_idState` INT NOT NULL,
+	`idCampaign` INT NOT NULL,
+	`idUser` INT NOT NULL,
+	`idMission` INT NOT NULL,
+`idQuestion` INT NOT NULL,
+	PRIMARY KEY (`idGame_Questions`),
+	CONSTRAINT `fk_Game_Questions_State1`
+		FOREIGN KEY (`state_idState`)
+		REFERENCES `game`.`game_State` (`idState`)
+		ON DELETE NO ACTION
+		ON UPDATE NO ACTION,
+	CONSTRAINT `fk_Game_Questions_Campaigns1`
+		FOREIGN KEY (`idCampaign`)
+		REFERENCES `game`.`campaigns` (`campaignsId`)
+		ON DELETE NO ACTION
+		ON UPDATE NO ACTION,
+	CONSTRAINT `fk_Game_Questions_User1`
+		FOREIGN KEY (`idUser`)
+		REFERENCES `game`.`users` (`userId`)
+		ON DELETE NO ACTION
+		ON UPDATE NO ACTION,
+	CONSTRAINT `fk_Game_Questions_Mission1`
+		FOREIGN KEY (`idMission`)
+		REFERENCES `game`.`mission` (`missionId`)
+		ON DELETE NO ACTION
+		ON UPDATE NO ACTION,
+CONSTRAINT `fk_ Questions`
+		FOREIGN KEY (`idQuestion`)
+		REFERENCES `game`.`questions` (`questionId`)
+		ON DELETE NO ACTION
+		ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
 
 -- -----------------------------------------------------
 -- Table `game`.`answers`
@@ -379,10 +342,7 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `game`.`campaigns_has_Users` (
 	`idCampaigns_has_Users` INT NOT NULL AUTO_INCREMENT,
 	`campaigns_CampaignsId` INT NOT NULL,
-	`campaigns_Interests_InterestId` INT NOT NULL,
 	`users_UserId` INT NOT NULL,
-	`users_Interests_InterestId` INT NOT NULL,
-	`users_Roles_RoleId` INT NOT NULL,
 	`campaigns_Score` INT UNSIGNED NOT NULL,
 	PRIMARY KEY (`idCampaigns_has_Users`),
 	CONSTRAINT `fk_Campaigns_has_Users_Campaigns1`
@@ -390,24 +350,9 @@ CREATE TABLE IF NOT EXISTS `game`.`campaigns_has_Users` (
 		REFERENCES `game`.`campaigns` (`campaignsId`)
 		ON DELETE NO ACTION
 		ON UPDATE NO ACTION,
-	CONSTRAINT `fk_Campaigns_has_Users_Interest1`
-		FOREIGN KEY (`campaigns_Interests_InterestId`)
-		REFERENCES `game`.`interests` (`interestId`)
-		ON DELETE NO ACTION
-		ON UPDATE NO ACTION,
 	CONSTRAINT `fk_Campaigns_has_Users_Users1`
 		FOREIGN KEY (`users_UserId`)
 		REFERENCES `game`.`users` (`userId`)
-		ON DELETE NO ACTION
-		ON UPDATE NO ACTION,
-	CONSTRAINT `fk_Campaigns_has_Users_Interest2`
-		FOREIGN KEY (`users_Interests_InterestId`)
-		REFERENCES `game`.`interests` (`interestId`)
-		ON DELETE NO ACTION
-		ON UPDATE NO ACTION,
-	CONSTRAINT `fk_Campaigns_has_Users_Roles1`
-		FOREIGN KEY (`users_Roles_RoleId`)
-		REFERENCES `game`.`roles` (`roleId`)
 		ON DELETE NO ACTION
 		ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -494,6 +439,49 @@ CREATE TABLE IF NOT EXISTS `game`.`donations` (
 	CONSTRAINT `fk_Donations_Project_States1`
 		FOREIGN KEY (`projects_Project_States_Project_StateId`)
 		REFERENCES `game`.`project_States` (`project_StateId`)
+		ON DELETE NO ACTION
+		ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+-- -----------------------------------------------------
+-- Table `game`.`campaigns`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `game`.`campaigns` (
+	`campaignsId` INT NOT NULL AUTO_INCREMENT,
+	`name` VARCHAR(70) NOT NULL,
+	`maxScore` INT NOT NULL,
+	`startDate` DATE NOT NULL,
+	`endDate` DATE NOT NULL,
+	`description` VARCHAR(300) NOT NULL,
+	`interests_InterestId` INT NOT NULL,
+	`campaign_Types_Campaign_TypeId` INT NOT NULL,
+	`campaign_States_Campaign_StateId` INT NOT NULL,
+	`users_userId` INT NOT NULL,
+`project_projectId` INT NOT NULL,
+	PRIMARY KEY (`campaignsId`),
+	CONSTRAINT `fk_Campaigns_Interests1`
+		FOREIGN KEY (`interests_InterestId`)
+		REFERENCES `game`.`interests` (`interestId`)
+		ON DELETE NO ACTION
+		ON UPDATE NO ACTION,
+	CONSTRAINT `fk_Campaigns_Campaign_Types1`
+		FOREIGN KEY (`campaign_Types_Campaign_TypeId`)
+		REFERENCES `game`.`campaign_Types` (`campaign_TypeId`)
+		ON DELETE NO ACTION
+		ON UPDATE NO ACTION,
+	CONSTRAINT `fk_Campaigns_Campaign_States1`
+		FOREIGN KEY (`campaign_States_Campaign_StateId`)
+		REFERENCES `game`.`campaign_States` (`campaign_StateId`)
+		ON DELETE NO ACTION
+		ON UPDATE NO ACTION,
+CONSTRAINT `fk_users_userId`
+		FOREIGN KEY (`users_userId`)
+		REFERENCES `game`.`users` (`userId`)
+		ON DELETE NO ACTION
+		ON UPDATE NO ACTION,
+CONSTRAINT `fk_project_project1`
+		FOREIGN KEY (`project_projectId`)
+		REFERENCES `game`.` projects` (`projectId`)
 		ON DELETE NO ACTION
 		ON UPDATE NO ACTION)
 ENGINE = InnoDB;
