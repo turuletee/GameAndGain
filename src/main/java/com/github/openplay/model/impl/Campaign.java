@@ -1,19 +1,23 @@
 package com.github.openplay.model.impl;
 
 import java.util.Date;
+import java.util.HashSet;
 
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 
+import org.eclipse.persistence.sessions.Project;
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Component;
 
 import com.github.openplay.model.CampaignInterface;
-
+import com.github.openplay.model.impl.Interest;
+import com.github.openplay.model.impl.CampaignStates;
+import com.github.openplay.model.impl.CampaignTypes;
 
 import java.io.Serializable;
 import java.util.Set;
@@ -21,58 +25,74 @@ import java.util.Set;
 import javax.persistence.*;
 
 @Component
-@XmlRootElement(name="campaign")
+@XmlRootElement(name="campaigns")
 @Entity
-@Table(name="campaign")
+@Table(name="campaigns")
 public class Campaign implements CampaignInterface {
-	
 	@Id
+	@Column(name="campaignsId")
 	@GeneratedValue
-	private Long id;
+	private Long campaignsId;
 	
 	@NotEmpty
-	@Size(min=4, max=20)
+	@Column(name="name")
+	@Size(min=4, max=70)
 	private String name;
 	
 	@NotEmpty
+	@Column(name="description")
+	@Size(min=4, max=300)
 	private String description;
 	
-	private int maxScore;
+	@Column(name="maxScore")
+	private Integer maxScore;
 	
 	@NotNull
 	@Past
+	@Column(name="startDate")
 	@DateTimeFormat(pattern="MM/dd/yyyy")
 	private Date startDate;
 	
 	@NotNull
 	@Past
+	@Column(name="endDate")
 	@DateTimeFormat(pattern="MM/dd/yyyy")
 	private Date endDate;
 
 	// Foreign keys association
 	@NotNull
-	private CampaignState campaignState
+	@ManyToOne
+	@JoinColumn(name="campaign_States_Campaign_StateId")
+	private CampaignStates campaignState;
 	
 	@NotNull
-	private CampaignType campaignType
+	@ManyToOne
+	@JoinColumn(name="campaign_Types_Campaign_TypeId")
+	private CampaignTypes campaignType;
 	
 	@NotNull
-	private User users
+	@ManyToOne
+	@JoinColumn(name="user_userId")
+	private User users;
+	
+	
+	private Set<Mission>mission= new HashSet<Mission>(0);
+	// @NotNull
+	// private Project project
 	
 	@NotNull
-	private Project project
-	
-	@NotNull
-	private Interest interest
+	@ManyToOne
+	@JoinColumn(name="interests_InterestsId")
+	private Interest interest;
 
 	// Missing Foreign keys and foreign keys methods
 
 	public Long getId() {
-		return id;
+		return campaignsId;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
+	public void setId(Long campaignsId) {
+		this.campaignsId = campaignsId;
 	}
 
 	public String getName() {
@@ -83,11 +103,11 @@ public class Campaign implements CampaignInterface {
 		this.name = name;
 	}
 
-	public int getMaxScore() {
+	public Integer getMaxScore() {
 		return maxScore;
 	}
 
-	public void setMaxScore(int maxScore) {
+	public void setMaxScore(Integer maxScore) {
 		this.maxScore = maxScore;
 	}
 
@@ -117,56 +137,58 @@ public class Campaign implements CampaignInterface {
 	
 	//  Foreign keys functions
 
-	@ManyToOne
-	@JoinColumn(name='campaign_states')
-	public CampaignState getCampaignState(){
+	public CampaignStates getCampaignState(){
 		return campaignState;
 	}
 
-	public void setCampaignState(CampaignState campaignState){
+	public void setCampaignState(CampaignStates campaignState){
 		this.campaignState = campaignState;
 	}
 
-	@ManyToOne
-	@JoinColumn(name='campaign_types')
-	public CampaignType getCampaignType(){
+	public CampaignTypes getCampaignType(){
 		return campaignType;
 	}
 
-	public void setType(CampaignType campaignType){
+	public void setType(CampaignTypes campaignType){
 		this.campaignType = campaignType;
 	}
 
-	@ManyToOne
-	@JoinColumn(name='interests')
+	
 	public Interest getInterest(){
 		return interest;
 	}
 
 	public void setInterest(Interest interest){
-		this.interest = interest
+		this.interest = interest;
 	}
 
 	@ManyToOne
-	@JoinColumn(name='users')
+	@JoinColumn(name="users")
 	public User getUser(){
-		return user;
+		return users;
 	}
 
 	public void setUser(User user){
-		this.user = user;
+		this.users = user;
 	}
 
-	@ManyToOne
-	@JoinColumn(name='projects')
-	public Project getProject(){
-		return project;
+	//@ManyToOne
+	//@JoinColumn(name="projects")
+	//public Project getProject(){
+	//	return projects;
+	//}
+
+	//public void setProject(Project project){
+	//	this.project = project;
+	//}
+
+	@OneToMany(fetch=FetchType.LAZY, mappedBy = "campaign")
+	public Set<Mission> getMission(){
+		return this.mission;
 	}
 
-	public void setProject(Project project){
-		this.project = project
+	public void setMission(Set<Mission> mission){
+		this.mission = mission;
 	}
-
-
 
 }

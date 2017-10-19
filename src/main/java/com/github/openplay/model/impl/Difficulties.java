@@ -1,5 +1,8 @@
 package com.github.openplay.model.impl;
 
+import java.util.Date;
+import java.util.HashSet;
+
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
 import javax.validation.constraints.Size;
@@ -10,41 +13,40 @@ import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Component;
 
-import com.github.openplay.model.InterestInterface;
+import com.github.openplay.model.DifficultiesInterface;
+
+
+
 
 import java.io.Serializable;
-import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.*;
 
-import com.github.openplay.model.impl.Campaign;
-
 @Component
-@XmlRootElement(name="interests")
+@XmlRootElement(name="difficulties")
 @Entity
-@Table(name="interests")
-public class Interest implements InterestInterface {
+@Table(name="difficulties")
+public class Difficulties implements DifficultiesInterface {
 	
 	@Id
 	@GeneratedValue
-	private Long interestId;
+	@Column(name="difficultyId")
+	private Long difficultyId;
 	
 	@NotEmpty
+	@Size(min=4, max=70)
+	@Column(name="description")
 	private String description;
-	private Set<Campaign> campaign = new HashSet<Campaign>(0);
+	
+	private Set<Mission> mission = new HashSet<Mission>(0);
 
-
-	public Interest(String description){
-		this.description = description;
+	public Long getId() {
+		return difficultyId;
 	}
 
-	public Long getId(){
-		return interestId;
-	}
-
-	public void setId(Long id) {
-		this.interestId = id;
+	public void setId(Long difficultyId) {
+		this.difficultyId = difficultyId;
 	}
 
 	public String getDescription() {
@@ -55,12 +57,12 @@ public class Interest implements InterestInterface {
 		this.description = description;
 	}
 
-	@OneToMany(fetch=FetchType.LAZY, mappedBy = "interest")
-	public Set<Campaign> getCampaign(){
-		return campaign;
+	@OneToMany(fetch=FetchType.LAZY, mappedBy = "difficulty")
+	public Set<Mission> getMission(){
+		return this.mission;
 	}
 
-	public void setCampaign(Set<Campaign> campaign){
-		this.campaign = campaign;
+	public void setMission(Set<Mission> mission){
+		this.mission = mission;
 	}
 }
