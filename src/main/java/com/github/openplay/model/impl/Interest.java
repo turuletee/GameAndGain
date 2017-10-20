@@ -32,7 +32,7 @@ public class Interest implements InterestInterface {
 	
 	@NotEmpty
 	private String description;
-	private Set<Campaign> campaign = new HashSet<Campaign>(0);
+	
 
 
 	public Interest(String description){
@@ -55,12 +55,4 @@ public class Interest implements InterestInterface {
 		this.description = description;
 	}
 
-	@OneToMany(fetch=FetchType.LAZY, mappedBy = "interest")
-	public Set<Campaign> getCampaign(){
-		return campaign;
-	}
-
-	public void setCampaign(Set<Campaign> campaign){
-		this.campaign = campaign;
-	}
 }
