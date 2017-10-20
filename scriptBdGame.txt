@@ -33,7 +33,7 @@ CREATE TABLE IF NOT EXISTS `game`.`student` (
 	`emailAddress` VARCHAR(45) NULL,
 	`dateOfBirth` DATE NOT NULL,
 	PRIMARY KEY (`id`))
-ENGINE = InnoDB
+ENGINE = InnoDB;
 
 -- -----------------------------------------------------
 -- Table `game`.`roles`
