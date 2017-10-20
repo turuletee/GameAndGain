@@ -1,19 +1,11 @@
 package com.github.openplay.model.impl;
 
-
-
-
-
 import java.util.Date;
-
-import javax.persistence.CascadeType;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
-import javax.persistence.*;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
 import javax.validation.constraints.Size;
@@ -27,16 +19,15 @@ import org.springframework.stereotype.Component;
 import com.github.openplay.model.UserInterface;
 
 
-
 @Component
 @XmlRootElement(name="users")
 @Entity
 @Table(name="users")
-public class User implements UserInterface{
+public class User implements UserInterface {
 	
 	@Id
 	@GeneratedValue
-	private Long userId;
+	private int userId;
 	
 	@NotEmpty
 	private String name;
@@ -66,19 +57,17 @@ public class User implements UserInterface{
 	@NotEmpty
 	private String country;
 	
-	@ManyToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name="roleId")
-	private Role role;
+	@NotEmpty
+	private int interests_InterestId;
 	
-	@ManyToOne(cascade = CascadeType.ALL)
-	private Interest interest;
-	
+	@NotEmpty
+	private int roles_RoleId;
 
-	public Long getUserId() {
+	public int getUserId() {
 		return userId;
 	}
 
-	public void setUserId(Long userId) {
+	public void setUserId(int userId) {
 		this.userId = userId;
 	}
 
@@ -146,23 +135,19 @@ public class User implements UserInterface{
 		this.country = country;
 	}
 
-
-	public Interest getInterest() {
-		return interest;
+	public int getInterests_InterestId() {
+		return interests_InterestId;
 	}
 
-	public void setInterest(Interest interest) {
-		this.interest = interest;
+	public void setInterests_InterestId(int interests_InterestId) {
+		this.interests_InterestId = interests_InterestId;
 	}
 
-	public Role getRole() {
-		return role;
+	public int getRoles_RoleId() {
+		return roles_RoleId;
 	}
 
-	public void setRole(Role role) {
-		this.role = role;
+	public void setRoles_RoleId(int roles_RoleId) {
+		this.roles_RoleId = roles_RoleId;
 	}
-
-
-
 }

@@ -32,19 +32,20 @@ public class CampaignStates implements CampaignStatesInterface{
 	@Id
 	@GeneratedValue
 	@Column(name="campaign_StateId")
-	private Long campaign_StateId;
+	private int campaign_StateId;
 	
 	@NotEmpty
 	@Column(name="description")
 	private String description;
 	
+	@OneToMany(fetch=FetchType.LAZY, mappedBy = "campaignState")
 	private Set<Campaign> campaign = new HashSet<Campaign>(0);
 	
-	public Long getId() {
+	public int getId() {
 		return campaign_StateId;
 	}
 
-	public void setId(Long campaign_StateId) {
+	public void setId(int campaign_StateId) {
 		this.campaign_StateId = campaign_StateId;
 	}
 
@@ -56,7 +57,7 @@ public class CampaignStates implements CampaignStatesInterface{
 		this.description = description;
 	}
 	
-	@OneToMany(fetch=FetchType.LAZY, mappedBy = "campaignState")
+	
 	public Set<Campaign> getCampaigns(){
 		return this.campaign;
 	 }

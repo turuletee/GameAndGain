@@ -32,7 +32,7 @@ public class Mission implements MissionInterface {
 	@Id
 	@Column(name="missionId")
 	@GeneratedValue
-	private Long missionId;
+	private int missionId;
 	
 	@NotEmpty
 	@Column(name="name")
@@ -58,15 +58,14 @@ public class Mission implements MissionInterface {
 	@JoinColumn(name="difficulties_DifficultyId")
 	private Difficulties difficulty;
 	
-	 @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, targetEntity = Role.class)
-	 @JoinTable(name = "questions", joinColumns = { @JoinColumn(name = "missionId") }, inverseJoinColumns = { @JoinColumn(name = "questionId") })	  
-	 private Set<Question> question;
+	@OneToMany(fetch=FetchType.LAZY ,mappedBy = "mission")
+	private Set<Question> question = new HashSet<Question>(0);
 	
-	public Long getId() {
+	public int getId() {
 		return missionId;
 	}
 
-	public void setId(Long missionId) {
+	public void setId(int missionId) {
 		this.missionId = missionId;
 	}
 

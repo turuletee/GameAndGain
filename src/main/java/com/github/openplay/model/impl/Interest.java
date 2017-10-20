@@ -28,22 +28,17 @@ public class Interest implements InterestInterface {
 	
 	@Id
 	@GeneratedValue
-	private Long interestId;
+	private int interestId;
 	
 	@NotEmpty
 	private String description;
 	
 
-
-	public Interest(String description){
-		this.description = description;
-	}
-
-	public Long getId(){
+	public int getId(){
 		return interestId;
 	}
 
-	public void setId(Long id) {
+	public void setId(int id) {
 		this.interestId = id;
 	}
 

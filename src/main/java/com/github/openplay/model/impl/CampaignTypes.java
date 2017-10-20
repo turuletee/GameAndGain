@@ -32,19 +32,20 @@ public class CampaignTypes implements CampaignTypeInterface{
 	@Id
 	@GeneratedValue
 	@Column(name="campaign_TypeId")
-	private Long campaign_TypeId;
+	private int campaign_TypeId;
 	
 	@NotEmpty
 	@Column(name="description")
 	private String description;
 	
+	@OneToMany(fetch=FetchType.LAZY, mappedBy = "campaignType")
 	private Set<Campaign> campaign = new HashSet<Campaign>(0);
 	
-	public Long getId() {
+	public int getId() {
 		return campaign_TypeId;
 	}
 
-	public void setId(Long campaign_TypeId) {
+	public void setId(int campaign_TypeId) {
 		this.campaign_TypeId = campaign_TypeId;
 	}
 
@@ -56,7 +57,7 @@ public class CampaignTypes implements CampaignTypeInterface{
 		this.description = description;
 	}
 	
-	@OneToMany(fetch=FetchType.LAZY, mappedBy = "campaignType")
+	
 	public Set<Campaign> getCampaigns(){
 		return this.campaign;
 	 }

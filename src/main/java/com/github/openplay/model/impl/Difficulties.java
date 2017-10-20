@@ -32,20 +32,21 @@ public class Difficulties implements DifficultiesInterface {
 	@Id
 	@GeneratedValue
 	@Column(name="difficultyId")
-	private Long difficultyId;
+	private int difficultyId;
 	
 	@NotEmpty
 	@Size(min=4, max=70)
 	@Column(name="description")
 	private String description;
 	
+	@OneToMany(fetch=FetchType.LAZY, mappedBy = "difficulty")
 	private Set<Mission> mission = new HashSet<Mission>(0);
 
-	public Long getId() {
+	public int getId() {
 		return difficultyId;
 	}
 
-	public void setId(Long difficultyId) {
+	public void setId(int difficultyId) {
 		this.difficultyId = difficultyId;
 	}
 
@@ -57,7 +58,7 @@ public class Difficulties implements DifficultiesInterface {
 		this.description = description;
 	}
 
-	@OneToMany(fetch=FetchType.LAZY, mappedBy = "difficulty")
+	
 	public Set<Mission> getMission(){
 		return this.mission;
 	}

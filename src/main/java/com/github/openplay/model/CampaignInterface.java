@@ -9,9 +9,9 @@ import com.github.openplay.model.impl.User;
 
 public interface CampaignInterface {
 
-	public Long getId();
+	public int getId();
 
-	public void setId(Long id);
+	public void setId(int id);
 
 	public String getName();
 

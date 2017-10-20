@@ -31,13 +31,14 @@ public class Answers implements AnswersInterface {
 	@Id
 	@GeneratedValue
 	@Column(name="answerId")
-	private Long answerId;
+	private int answerId;
 	
 	@NotEmpty
 	@Size(min=4, max=40)
 	private String answer;
 
 	@NotEmpty
+	@Column(name="answer_Value", columnDefinition = "BIT", length = 1)
 	private boolean answer_value;
 	
 	// Foreign keys association
@@ -47,11 +48,11 @@ public class Answers implements AnswersInterface {
 	private Question question;
 	
 
-	public Long getId() {
+	public int getId() {
 		return answerId;
 	}
 
-	public void setId(Long answerId) {
+	public void setId(int answerId) {
 		this.answerId = answerId;
 	}
 

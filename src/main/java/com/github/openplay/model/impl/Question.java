@@ -33,7 +33,7 @@ public class Question implements QuestionsInterface {
 	@Id
 	@GeneratedValue
 	@Column(name="questionId")
-	private Long questionId;
+	private int questionId;
 	
 	@NotEmpty
 	@Size(min=4, max=20)
@@ -50,13 +50,14 @@ public class Question implements QuestionsInterface {
 	@JoinColumn(name="missionId")
 	private Mission mission;
 	
+	@OneToMany(fetch=FetchType.LAZY, mappedBy = "question")
 	private Set<Answers> answer = new HashSet<Answers>(0);
 	
-	public Long getId() {
+	public int getId() {
 		return questionId;
 	}
 
-	public void setId(Long questionId) {
+	public void setId(int questionId) {
 		this.questionId = questionId;
 	}
 
@@ -84,7 +85,7 @@ public class Question implements QuestionsInterface {
 		this.mission = mission;
 	}
 
-	@OneToMany(fetch=FetchType.LAZY, mappedBy = "question")
+	
 	public Set<Answers> getAnswers(){
 		return answer;
 	}

@@ -1,9 +1,9 @@
 package com.github.openplay.model;
 
 public interface RoleInterface{
-	public Long getRoleId() ;
+	public int getRoleId() ;
 	
-	public void setRoleId(Long roleId);
+	public void setRoleId(int roleId);
 	
 	public String getDescription();
 	

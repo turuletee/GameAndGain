@@ -7,9 +7,9 @@ import com.github.openplay.model.impl.Difficulties;
 
 public interface MissionInterface {
 
-	public Long getId();
+	public int getId();
 
-	public void setId(Long missionId);
+	public void setId(int missionId);
 
 	public String getName();
 

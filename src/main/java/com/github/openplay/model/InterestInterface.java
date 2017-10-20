@@ -2,14 +2,12 @@ package com.github.openplay.model;
 
 public interface InterestInterface{
 
-	public Long getId();
+	public int getId();
 
-	public void setId(Long id);
+	public void setId(int id);
 
 	public String getDescription();
 
 	public void setDescription(String description);
-	
-	
 
 }

@@ -18,13 +18,13 @@ public interface CommentInterface {
 
 	public void setComment(String comment);
 
-	public Long getUsers_UserIdFrom();
+	public int getUsers_UserIdFrom();
 
-	public void setUsers_UserIdFrom(Long users_UserIdFrom);
+	public void setUsers_UserIdFrom(int users_UserIdFrom);
 
-	public Long getUsers_UserIdTo();
+	public int getUsers_UserIdTo();
 
-	public void setUsers_UserIdTo(Long users_UserIdTo);
+	public void setUsers_UserIdTo(int users_UserIdTo);
 
 	public User getUserfrom();
 

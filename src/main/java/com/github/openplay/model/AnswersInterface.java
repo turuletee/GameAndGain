@@ -6,9 +6,9 @@ import com.github.openplay.model.impl.Question;
 
 public interface AnswersInterface{
 
-	public Long getId();
+	public int getId();
 
-	public void setId(Long answerId);
+	public void setId(int answerId);
 
 	public String getAnswer();
 

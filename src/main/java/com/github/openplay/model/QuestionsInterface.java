@@ -6,9 +6,9 @@ import com.github.openplay.model.impl.Mission;
 
 public interface QuestionsInterface {
 
-	public Long getId();
+	public int getId();
 
-	public void setId(Long questionId);
+	public void setId(int questionId);
 
 	public Integer getScore();
 

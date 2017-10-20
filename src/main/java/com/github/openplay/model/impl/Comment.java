@@ -5,6 +5,8 @@ import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -35,16 +37,23 @@ public class Comment implements CommentInterface {
 	private String comment;
 	
 	@NotNull
-	private Long users_UserIdFrom;
+	private int users_UserIdFrom;
 	
 	@NotNull
-	private Long users_UserIdTo;
+	private int users_UserIdTo;
 	
 	
 	//To get the user id from the user who sent the comment 
+	@ManyToOne
+	@NotNull
+	@JoinColumn(name = "users_UserIdFrom", insertable = false, updatable = false)
 	private User userfrom;
+	
 
 	//To get the user id of receiver
+	@ManyToOne
+	@JoinColumn(name = "users_UserIdTo", insertable = false, updatable = false)
+	@NotNull
 	private User userto;
 	
 	public int getCommentId() {
@@ -71,19 +80,19 @@ public class Comment implements CommentInterface {
 		this.comment = comment;
 	}
 
-	public Long getUsers_UserIdFrom() {
+	public int getUsers_UserIdFrom() {
 		return users_UserIdFrom;
 	}
 
-	public void setUsers_UserIdFrom(Long users_UserIdFrom) {
+	public void setUsers_UserIdFrom1(int users_UserIdFrom) {
 		this.users_UserIdFrom = users_UserIdFrom;
 	}
 
-	public Long getUsers_UserIdTo() {
+	public int getUsers_UserIdTo() {
 		return users_UserIdTo;
 	}
 
-	public void setUsers_UserIdTo(Long users_UserIdTo) {
+	public void setUsers_UserIdTo1(int users_UserIdTo) {
 		this.users_UserIdTo = users_UserIdTo;
 	}
 
@@ -101,6 +110,18 @@ public class Comment implements CommentInterface {
 
 	public void setUserto(User userto) {
 		this.userto = userto;
+	}
+
+	@Override
+	public void setUsers_UserIdFrom(int users_UserIdFrom) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void setUsers_UserIdTo(int users_UserIdTo) {
+		// TODO Auto-generated method stub
+		
 	}
 	
 }

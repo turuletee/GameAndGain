@@ -2,11 +2,15 @@ package com.github.openplay.model.impl;
 
 import com.github.openplay.model.BadgeInterface;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
+
+
 
 
 
@@ -28,7 +32,8 @@ public class Badge implements BadgeInterface{
 	private String name;
 	
 	@NotEmpty
-	private byte[] icon;
+	@Column(name="icon",columnDefinition="blob")
+	@Lob private byte[] icon;
 	
 	@NotEmpty
 	private int value;

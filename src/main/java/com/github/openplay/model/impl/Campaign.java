@@ -32,7 +32,7 @@ public class Campaign implements CampaignInterface {
 	@Id
 	@Column(name="campaignsId")
 	@GeneratedValue
-	private Long campaignsId;
+	private int campaignsId;
 	
 	@NotEmpty
 	@Column(name="name")
@@ -72,26 +72,26 @@ public class Campaign implements CampaignInterface {
 	
 	@NotNull
 	@ManyToOne
-	@JoinColumn(name="user_userId")
+	@JoinColumn(name="users_userId")
 	private User users;
 	
-	
+	@OneToMany(fetch=FetchType.LAZY, mappedBy = "campaign")
 	private Set<Mission>mission= new HashSet<Mission>(0);
 	// @NotNull
 	// private Project project
 	
 	@NotNull
 	@ManyToOne
-	@JoinColumn(name="interests_InterestsId")
+	@JoinColumn(name="interests_InterestId")
 	private Interest interest;
 
 	// Missing Foreign keys and foreign keys methods
 
-	public Long getId() {
+	public int getId() {
 		return campaignsId;
 	}
 
-	public void setId(Long campaignsId) {
+	public void setId(int campaignsId) {
 		this.campaignsId = campaignsId;
 	}
 
@@ -182,7 +182,7 @@ public class Campaign implements CampaignInterface {
 	//	this.project = project;
 	//}
 
-	@OneToMany(fetch=FetchType.LAZY, mappedBy = "campaign")
+	
 	public Set<Mission> getMission(){
 		return this.mission;
 	}

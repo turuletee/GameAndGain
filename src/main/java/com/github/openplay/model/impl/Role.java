@@ -19,16 +19,16 @@ import com.github.openplay.model.RoleInterface;
 public class Role implements RoleInterface{
 	@Id
 	@GeneratedValue
-	private Long roleId;
+	private int roleId;
 	
 	@NotEmpty
 	private String description;
 
-	public Long getRoleId() {
+	public int getRoleId() {
 		return roleId;
 	}
 
-	public void setRoleId(Long roleId) {
+	public void setRoleId(int roleId) {
 		this.roleId = roleId;
 	}
 

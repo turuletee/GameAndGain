@@ -4,9 +4,9 @@ import java.util.Date;
 
 public interface DifficultiesInterface {
 
-	public Long getId();
+	public int getId();
 
-	public void setId(Long difficultyId);
+	public void setId(int difficultyId);
 
 	public String getDescription();
 

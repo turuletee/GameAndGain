@@ -26,9 +26,13 @@ public class CampaignsHasUsers implements CampaingsHasUsersInterface{
 	private Integer idCampaigns_has_Users;
 	
 	@NotNull
+	@ManyToOne
+	@JoinColumn(name = "campaigns_CampaignsId")
 	private Campaign campaign;
 	
 	@NotNull
+	@ManyToOne
+	@JoinColumn(name="users_UserId")
 	private User user;
 
 	public Integer getIdCampaigns_has_Users() {
@@ -39,8 +43,7 @@ public class CampaignsHasUsers implements CampaingsHasUsersInterface{
 		this.idCampaigns_has_Users = idCampaigns_has_Users;
 	}
 
-	@ManyToOne
-	@JoinColumn(name = "campaignsId")
+	
 	public Campaign getCampaign() {
 		return campaign;
 	}
@@ -49,8 +52,7 @@ public class CampaignsHasUsers implements CampaingsHasUsersInterface{
 		this.campaign = campaign;
 	}
 
-	@ManyToOne
-	@JoinColumn(name="userId")
+
 	public User getUser() {
 		return user;
 	}

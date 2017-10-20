@@ -2,13 +2,11 @@ package com.github.openplay.model;
 
 import java.util.Date;
 
-import com.github.openplay.model.impl.Interest;
-import com.github.openplay.model.impl.Role;
-
 public interface UserInterface {
-	public Long getUserId();
+
+	public int getUserId();
 	
-	public void setUserId(Long userId);
+	public void setUserId(int userId);
 	
 	public String getName();
 	
@@ -42,12 +40,15 @@ public interface UserInterface {
 	
 	public void setCountry(String country);
 	
-	public Interest getInterest();
+	public int getInterests_InterestId();
 	
-	public void setInterest(Interest interest);
+	public void setInterests_InterestId(int interests_InterestId);
 	
-	public Role getRole();
+	public int getRoles_RoleId();
 	
-	public void setRole(Role role);
+	public void setRoles_RoleId(int roles_RoleId);
+	
+	
+	
 	
 }

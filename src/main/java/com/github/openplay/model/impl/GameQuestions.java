@@ -26,18 +26,28 @@ public class GameQuestions implements GameQuestionsInterface{
 	private Integer idGame_Questions;
 	
 	@NotNull
+	@ManyToOne
+	@JoinColumn(name="state_idState")
 	private GameState gameState;
 	
 	@NotNull
+	@ManyToOne
+	@JoinColumn(name="idCampaign")
 	private Campaign camapaign;
 	
 	@NotNull
+	@ManyToOne
+	@JoinColumn(name="idUser")
 	private User user;
 	
 	@NotNull
+	@ManyToOne
+	@JoinColumn(name="idMission")
 	private Mission mission;
 	
 	@NotNull
+	@ManyToOne
+	@JoinColumn(name="idQuestion")
 	private Question question;
 
 	public Integer getIdGame_Questions() {
@@ -48,8 +58,7 @@ public class GameQuestions implements GameQuestionsInterface{
 		this.idGame_Questions = idGame_Questions;
 	}
 
-	@ManyToOne
-	@JoinColumn(name="idState")
+	
 	public GameState getGameState() {
 		return gameState;
 	}
@@ -58,8 +67,7 @@ public class GameQuestions implements GameQuestionsInterface{
 		this.gameState = gameState;
 	}
 
-	@ManyToOne
-	@JoinColumn(name="campaignsId")
+
 	public Campaign getCamapaign() {
 		return camapaign;
 	}
@@ -68,8 +76,7 @@ public class GameQuestions implements GameQuestionsInterface{
 		this.camapaign = camapaign;
 	}
 	
-	@ManyToOne
-	@JoinColumn(name="userId")
+	
 	public User getUser() {
 		return user;
 	}
@@ -78,8 +85,7 @@ public class GameQuestions implements GameQuestionsInterface{
 		this.user = user;
 	}
 
-	@ManyToOne
-	@JoinColumn(name="missionId")
+	
 	public Mission getMission() {
 		return mission;
 	}
@@ -88,8 +94,7 @@ public class GameQuestions implements GameQuestionsInterface{
 		this.mission = mission;
 	}
 
-	@ManyToOne
-	@JoinColumn(name="questionId")
+	
 	public Question getQuestion() {
 		return question;
 	}
