@@ -58,7 +58,9 @@ public class Mission implements MissionInterface {
 	@JoinColumn(name="difficulties_DifficultyId")
 	private Difficulties difficulty;
 	
-	private Set<Question> question = new HashSet<Question>(0);
+	 @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, targetEntity = Role.class)
+	 @JoinTable(name = "questions", joinColumns = { @JoinColumn(name = "missionId") }, inverseJoinColumns = { @JoinColumn(name = "questionId") })	  
+	 private Set<Question> question;
 	
 	public Long getId() {
 		return missionId;
@@ -108,7 +110,7 @@ public class Mission implements MissionInterface {
 		this.difficulty = difficulty;
 	}
 
-	@OneToMany(fetch=FetchType.LAZY ,mappedBy = "mission")
+	
 	public Set<Question> getQuestion(){
 		return this.question;
 	}
