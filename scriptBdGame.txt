@@ -439,21 +439,6 @@ CREATE TABLE IF NOT EXISTS `game`.`donations` (
 		FOREIGN KEY (`projects_Users_UserId`)
 		REFERENCES `game`.`users` (`userId`)
 		ON DELETE NO ACTION
-		ON UPDATE NO ACTION,
-	CONSTRAINT `fk_Donations_Interest1`
-		FOREIGN KEY (`projects_Users_Interests_InterestId`)
-		REFERENCES `game`.`interests` (`interestId`)
-		ON DELETE NO ACTION
-		ON UPDATE NO ACTION,
-	CONSTRAINT `fk_Donations_Roles1`
-		FOREIGN KEY (`projects_Users_Roles_RoleId`)
-		REFERENCES `game`.`roles` (`roleId`)
-		ON DELETE NO ACTION
-		ON UPDATE NO ACTION,
-	CONSTRAINT `fk_Donations_Project_States1`
-		FOREIGN KEY (`projects_Project_States_Project_StateId`)
-		REFERENCES `game`.`project_States` (`project_StateId`)
-		ON DELETE NO ACTION
 		ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
