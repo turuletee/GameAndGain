@@ -28,7 +28,8 @@
 				<property name="showSql" value="true" />
 			</bean>
 		</property>
-		<property name="jpaPropertyMap">			<map>
+		<property name="jpaPropertyMap">			
+			<map>
 				<entry key="hibernate.dialect" value="org.hibernate.dialect.MySQL5InnoDBDialect" />
 				<entry key="hibernate.hbm2ddl.auto" value="validate" />
 				<entry key="hibernate.format_sql" value="true" />
