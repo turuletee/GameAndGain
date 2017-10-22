@@ -2,6 +2,7 @@ package com.github.openplay.resource.impl;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -20,9 +21,9 @@ import org.glassfish.jersey.server.mvc.Viewable;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.github.openplay.model.impl.Student;
+import com.github.openplay.model.impl.User;
 import com.github.openplay.resource.AdminResourceInterface;
-import com.github.openplay.service.StudentService;
+import com.github.openplay.service.AdminService;
 
 @Component
 @Path("adminResource")
@@ -30,7 +31,7 @@ import com.github.openplay.service.StudentService;
 public class AdminResource implements AdminResourceInterface {
 
 	@Autowired
-	private StudentService studentService; //reemplazar por el tag que se encuentra en AdminServiceImple : @Service("adminService")
+	private AdminService adminService; //reemplazar por el tag que se encuentra en AdminServiceImple : @Service("adminService")
 
 	@GET
 	@Path("signup")
@@ -38,47 +39,50 @@ public class AdminResource implements AdminResourceInterface {
 	public Response signup() {
 		return Response.ok(new Viewable("/signup")).build();
 	}
-	
-
-	
 
 	@POST
 	@Path("signup")
 	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
 	@Produces(MediaType.TEXT_HTML)
-	public Response signup(@FormParam("userName") String userName,
+	public Response signup(@FormParam("emailAddress") String emailAddress,
 			@FormParam("password") String password,
 			@FormParam("firstName") String firstName,
 			@FormParam("lastName") String lastName,
-			@FormParam("dateOfBirth") String dateOfBirth,
-			@FormParam("emailAddress") String emailAddress)
+			@FormParam("birthdate") String birthdate,
+			@FormParam("phone") String phone,
+			@FormParam("country") String country,
+			@FormParam("interest") String interest,
+			@FormParam("role") String role 
+			)
 			throws ParseException {
 
-		if (userName == null || password == null || firstName == null
-				|| lastName == null || dateOfBirth == null
-				|| emailAddress == null) {
+		if (emailAddress == null || password == null || firstName == null
+				|| lastName == null || birthdate == null
+				|| phone == null || country == null) {
 			return Response.status(Status.PRECONDITION_FAILED).build();
 		}
 
-		Student student = new Student();
-		student.setUserName(userName);
-		student.setPassword(password);
-		student.setFirstName(firstName);
-		student.setLastName(lastName);
+		User user = new User();
+		user.setPassword(password);
+		user.setName(firstName);
+		user.setLastname(lastName);
+		user.setMail(emailAddress);
+		user.setPhone(phone);
+		user.setCountry(country);
+		user.setInterests_InterestId(Integer.parseInt(interest));
+		user.setRoles_RoleId(Integer.parseInt(role));
+		user.setBirthdate(new java.sql.Date(new SimpleDateFormat(
+				"MM/dd/yyyy").parse(birthdate.substring(0, 10)).getTime()));
 
-		student.setDateOfBirth(new java.sql.Date(new SimpleDateFormat(
-				"MM/dd/yyyy").parse(dateOfBirth.substring(0, 10)).getTime()));
 
-		student.setEmailAddress(emailAddress);
-
-		if (studentService.findByUserName(userName)) {
+		if (adminService.findByUserName(emailAddress)) {
 			Map<String, Object> map = new HashMap<String, Object>();
 			map.put("message", "User Name exists. Try another user name");
-			map.put("student", student);
+			map.put("student", user);
 			return Response.status(Status.BAD_REQUEST)
 					.entity(new Viewable("/signup", map)).build();
 		} else {
-			studentService.save(student);
+			adminService.save(user);
 			return Response.ok().entity(new Viewable("/login")).build();
 		}
 	}
@@ -94,14 +98,14 @@ public class AdminResource implements AdminResourceInterface {
 	@Path("login")
 	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
 	@Produces(MediaType.TEXT_HTML)
-	public Response login(@FormParam("userName") String userName,
+	public Response login(@FormParam("emailAddress") String emailAddress,
 			@FormParam("password") String password) {
 
-		if (userName == null || password == null) {
+		if (emailAddress == null || password == null) {
 			return Response.status(Status.PRECONDITION_FAILED).build();
 		}
 
-		boolean found = studentService.findByLogin(userName, password);
+		boolean found = adminService.findByLogin(emailAddress, password);
 		if (found) {
 			return Response.ok().entity(new Viewable("/success")).build();
 		} else {

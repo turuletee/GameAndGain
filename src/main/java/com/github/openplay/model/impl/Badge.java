@@ -8,7 +8,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlRootElement;
+
 
 
 
@@ -35,7 +37,7 @@ public class Badge implements BadgeInterface{
 	@Column(name="icon",columnDefinition="blob")
 	@Lob private byte[] icon;
 	
-	@NotEmpty
+	@NotNull
 	private int value;
 
 	public int getBadgeId() {

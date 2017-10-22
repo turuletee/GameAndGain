@@ -44,7 +44,7 @@ public class User implements UserInterface {
 	@DateTimeFormat(pattern="MM/dd/yyyy")
 	private Date birthdate;
 	
-	@NotEmpty
+	@NotNull
 	private int points;
 	
 	@NotEmpty
@@ -57,10 +57,10 @@ public class User implements UserInterface {
 	@NotEmpty
 	private String country;
 	
-	@NotEmpty
+	@NotNull
 	private int interests_InterestId;
 	
-	@NotEmpty
+	@NotNull
 	private int roles_RoleId;
 
 	public int getUserId() {

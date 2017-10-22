@@ -6,7 +6,13 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
+<IfModule mod_headers.c>
+   RequestHeader edit Accept-Language "es-419" "es-ES"
+ </IfModule>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -108,24 +114,15 @@
 						<form:form id="myForm" method="post" action="signup"
 							class="bs-example form-horizontal">
 							<fieldset>
-								<legend>Student Enrollment Signup Form</legend>
+								<legend>User Signup Form</legend>
 
-								<div class="form-group">
-									<label for="userNameInput" class="col-lg-3 control-label">User
-										Name</label>
-									<div class="col-lg-9">
-										<input type="text" class="form-control" name="userName"
-											id="userNameInput" placeholder="User Name"
-											value="${it.student.userName}" />
-									</div>
-								</div>
 
 								<div class="form-group">
 									<label for="passwordInput" class="col-lg-3 control-label">Password</label>
 									<div class="col-lg-9">
 										<input type="password" class="form-control" name="password"
 											id="passwordInput" placeholder="Password"
-											value="${it.student.password}" />
+											value="${it.user.password}" />
 									</div>
 								</div>
 
@@ -135,7 +132,7 @@
 									<div class="col-lg-9">
 										<input type="text" class="form-control" name="firstName"
 											id="firstNameInput" placeholder="First Name"
-											value="${it.student.firstName}" />
+											value="${it.user.firstName}" />
 									</div>
 								</div>
 
@@ -145,21 +142,21 @@
 									<div class="col-lg-9">
 										<input type="text" class="form-control" name="lastName"
 											id="lastNameInput" placeholder="Last Name"
-											value="${it.student.lastName}" />
+											value="${it.user.lastName}" />
 									</div>
 								</div>
 
 								<div class="form-group">
-									<label for="dateOfBirthInput" class="col-lg-3 control-label">Date
+									<label for="birthdateInput" class="col-lg-3 control-label">Date
 										of Birth</label>
 									<div class="date form_date col-lg-9"
 										data-date-format="mm/dd/yyyy" data-date-viewmode="years">
 										<c:set var="myDate">
 											<fmt:formatDate pattern="MM/dd/yyyy"
-												value="${it.student.dateOfBirth}" />
+												value="${it.user.birthdate}" />
 										</c:set>
-										<input type="text" class="form-control" name="dateOfBirth"
-											id="dateOfBirthInput" placeholder="Date of Birth"
+										<input type="text" class="form-control" name="birthdate"
+											id="birthdateInput" placeholder="Birthdate"
 											value="${myDate}" />
 									</div>
 								</div>
@@ -170,7 +167,41 @@
 									<div class="col-lg-9">
 										<input type="text" class="form-control" name="emailAddress"
 											id="emailAddressInput" placeholder="Email Address"
-											value="${it.student.emailAddress}" />
+											value="${it.user.emailAddress}" />
+									</div>
+								</div>
+								
+								<div class="form-group">
+									<label for="phoneInput" class="col-lg-3 control-label">Phone</label>
+									<div class="col-lg-9">
+										<input type="text" class="form-control" name="phone"
+											id="phoneInput" placeholder="phone"
+											value="${it.user.phone}" />
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="countryInput" class="col-lg-3 control-label">Country</label>
+									<div class="col-lg-9">
+										<input type="text" class="form-control" name="country"
+											id="countryInput" placeholder="country"
+											value="${it.user.country}" />
+									</div>
+								</div>
+								
+								<div class="form-group">
+									<label for="interestInput" class="col-lg-3 control-label">Interest</label>
+									<div class="col-lg-9">
+										<input type="text" class="form-control" name="interest"
+											id="interestInput" placeholder="interest"
+											value="${it.user.interest}" />
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="roleInput" class="col-lg-3 control-label">Role</label>
+									<div class="col-lg-9">
+										<input type="text" class="form-control" name="role"
+											id="roleInput" placeholder="role"
+											value="${it.user.role}" />
 									</div>
 								</div>
 
