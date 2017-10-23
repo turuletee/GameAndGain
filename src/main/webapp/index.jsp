@@ -27,7 +27,7 @@
 			<a class="menu_bar-link" href="#">JUGAR</a>
 			<a class="menu_bar-link" href="#">RANKINGS</a>
 			<form >
-				<input type="text" class="menu_bar-link" placeholder="Buscar">
+				<input type="text" class="menu_bar-link search" placeholder="Buscar">
 			</form>
 		</div>
 		<!-- /.nav-collapse -->
