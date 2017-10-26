@@ -92,7 +92,8 @@ body {
 }
 
 
-input[type=text] {
+
+.search{
 	width: 200px;
 	border: none;
 	background-image: url(../img/searchicon.png);
@@ -107,14 +108,14 @@ input[type=text] {
     font-size: 30px;
 }
 
-input[type=text]:focus {
+.search:focus{
     width: 300px;
     background-color: #aa4d4d;
 }
-input[type=text]::placeholder{
+.search::placeholder{
 	color: lightgray;
 	opacity: 0.5;
-	font-size: 30px;
+	font-size: 700px;
 
 
 }

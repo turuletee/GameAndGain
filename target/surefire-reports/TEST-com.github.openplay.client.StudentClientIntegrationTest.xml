@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="5" failures="0" name="com.github.openplay.client.StudentClientIntegrationTest" time="6.8" errors="0" skipped="0">
+<testsuite tests="5" failures="0" name="com.github.openplay.client.StudentClientIntegrationTest" time="6.919" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_144\jre\bin"/>
@@ -27,9 +27,9 @@
     <property name="user.variant" value=""/>
     <property name="os.name" value="Windows 7"/>
     <property name="net.sourceforge.cobertura.datafile" value="C:\Users\Juan\Documents\GitHub\GameAndGain\target\cobertura\cobertura.ser"/>
-    <property name="classworlds.conf" value="C:\Users\Juan\workspace\.metadata\.plugins\org.eclipse.m2e.launching\launches\m2conf4020434911894043218.tmp"/>
+    <property name="classworlds.conf" value="C:\Users\Juan\workspace\.metadata\.plugins\org.eclipse.m2e.launching\launches\m2conf52930263391339311.tmp"/>
     <property name="sun.jnu.encoding" value="Cp1252"/>
-    <property name="java.library.path" value="C:\Program Files\Java\jdk1.8.0_144\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:/Program Files/Java/jre1.8.0_144/bin/server;C:/Program Files/Java/jre1.8.0_144/bin;C:/Program Files/Java/jre1.8.0_144/lib/amd64;C:\ProgramData\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Users\Juan\AppData\Local\GitHubDesktop\bin;C:\Users\Juan\Downloads\eclipse-jee-kepler-SR1-win32-x86_64\eclipse;;."/>
+    <property name="java.library.path" value="C:\Program Files\Java\jdk1.8.0_144\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:/Program Files/Java/jre1.8.0_144/bin/server;C:/Program Files/Java/jre1.8.0_144/bin;C:/Program Files/Java/jre1.8.0_144/lib/amd64;C:\ProgramData\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\Java\jdk1.8.0_144\\bin;;C:\Users\Juan\Downloads\eclipse-jee-kepler-SR1-win32-x86_64\eclipse;;."/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="java.class.version" value="52.0"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
@@ -63,9 +63,9 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="com.github.openplay.client.StudentClientIntegrationTest" name="PostSignupInvalidDateTest" time="1.998"/>
-  <testcase classname="com.github.openplay.client.StudentClientIntegrationTest" name="PostSignupBadRequestTest" time="1.152"/>
-  <testcase classname="com.github.openplay.client.StudentClientIntegrationTest" name="PostLoginFailureTest" time="1.149"/>
-  <testcase classname="com.github.openplay.client.StudentClientIntegrationTest" name="PostSignupFailureForExistingUserTest" time="1.161"/>
-  <testcase classname="com.github.openplay.client.StudentClientIntegrationTest" name="PostLoginBadRequestTest" time="1.279"/>
+  <testcase classname="com.github.openplay.client.StudentClientIntegrationTest" name="PostSignupInvalidDateTest" time="2.278"/>
+  <testcase classname="com.github.openplay.client.StudentClientIntegrationTest" name="PostSignupBadRequestTest" time="1.098"/>
+  <testcase classname="com.github.openplay.client.StudentClientIntegrationTest" name="PostLoginFailureTest" time="1.093"/>
+  <testcase classname="com.github.openplay.client.StudentClientIntegrationTest" name="PostSignupFailureForExistingUserTest" time="1.106"/>
+  <testcase classname="com.github.openplay.client.StudentClientIntegrationTest" name="PostLoginBadRequestTest" time="1.344"/>
 </testsuite>

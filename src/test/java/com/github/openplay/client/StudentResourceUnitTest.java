@@ -15,20 +15,20 @@ import org.junit.Before;
 import org.junit.Test;
 
 import com.github.openplay.model.StudentInterface;
-import com.github.openplay.resource.AdminResourceInterface;
-import com.github.openplay.resource.impl.AdminResource;
+import com.github.openplay.resource.StudentResourceInterface;
+import com.github.openplay.resource.impl.StudentResource;
 import com.github.openplay.service.StudentService;
 
 public class StudentResourceUnitTest {
 	private Mockery context;
 	private StudentService studentService;
-	private AdminResourceInterface studentResourceInterface;
+	private StudentResourceInterface studentResourceInterface;
 
 	@Before
 	public void beforeEachTest() throws Exception {
 		context = new Mockery();
 		studentService = context.mock(StudentService.class);
-		studentResourceInterface = new AdminResource();
+		studentResourceInterface = new StudentResource();
 
 		Field field = studentResourceInterface.getClass().getDeclaredField(
 				"studentService");
@@ -89,8 +89,8 @@ public class StudentResourceUnitTest {
 		String lastName = null;
 		String dateOfBirth = null;
 		String emailAddress = null;
-		final AdminResourceInterface studentResourceInterface = context
-				.mock(AdminResourceInterface.class);
+		final StudentResourceInterface studentResourceInterface = context
+				.mock(StudentResourceInterface.class);
 		final Response response = Response.status(Status.PRECONDITION_FAILED)
 				.build();
 		final Response response1 = Response.ok().entity(new Viewable("/login"))
@@ -241,8 +241,8 @@ public class StudentResourceUnitTest {
 	public void postLoginResourceForBadRequestTest() throws ParseException {
 		final String userName = null;
 		final String password = null;
-		final AdminResourceInterface studentResourceInterface = context
-				.mock(AdminResourceInterface.class);
+		final StudentResourceInterface studentResourceInterface = context
+				.mock(StudentResourceInterface.class);
 		final Response response = Response.status(Status.PRECONDITION_FAILED)
 				.build();
 		final Response response1 = Response.ok().entity(new Viewable("/login"))

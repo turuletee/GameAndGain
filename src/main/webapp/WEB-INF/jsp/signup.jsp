@@ -6,9 +6,7 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
-<IfModule mod_headers.c>
-   RequestHeader edit Accept-Language "es-419" "es-ES"
- </IfModule>
+
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
@@ -20,6 +18,7 @@
 <link href="../../bootstrap/css/bootstrap.css" rel="stylesheet" />
 <link href="../../datepicker/css/datepicker.css" rel="stylesheet" />
 <link href="../../assets/css/bootstrap-united.css" rel="stylesheet" />
+<link href="../../assets/css/signup.css" rel="stylesheet" />
 
 <style>
 .green {
@@ -48,8 +47,10 @@
 </head>
 <body>
 
-	<div class="navbar navbar-default">
-
+	<div class="navbar">
+	<div class="logo_header">
+			<section class="logo_title"></section>
+		</div>
 		<div class="navbar-header">
 			<button type="button" class="navbar-toggle" data-toggle="collapse"
 				data-target=".navbar-responsive-collapse">
@@ -57,24 +58,16 @@
 					class="icon-bar"></span>
 			</button>
 		</div>
+		
+		<div class="menu_bar">
+			<a href="#" class="menu_bar-link">INICIO</a>
+			<a href="#" class="menu_bar-link">MI PERFIL</a>
+			<a href="#" class="menu_bar-link">JUGAR</a>
+			<a href="#" class="menu_bar-link">RANKINGS</a>
+			<input class="menu_bar-link search" type="text" name="searchIn" placeholder="Buscar">
 
-		<div class="navbar-collapse collapse navbar-responsive-collapse">
-			<form class="navbar-form navbar-right">
-				<input type="text" class="form-control" placeholder="Search">
-			</form>
-			<ul class="nav navbar-nav navbar-right">
-				<li><a href="/GameAndGain">Home</a></li>
-				<li class="active"><a href="signup">Signup</a></li>
-				<li><a href="login">Login</a></li>
-				<li class="dropdown"><a href="#" class="dropdown-toggle"
-					data-toggle="dropdown">Explore<b class="caret"></b></a>
-					<ul class="dropdown-menu">
-						<li><a href="#">Contact us</a></li>
-						<li class="divider"></li>
-						<li><a href="#">Further Actions</a></li>
-					</ul></li>
-			</ul>
 		</div>
+
 		<!-- /.nav-collapse -->
 	</div>
 
@@ -92,12 +85,7 @@
 
 
 	<div class="container">
-		<div class="jumbotron">
-			<div>
-				<h1>Welcome to Online Student Enrollment Signup</h1>
-				<p>Its absolutely quick!</p>
-			</div>
-		</div>
+		
 
 		<div></div>
 	</div>
@@ -106,12 +94,13 @@
 		<div class="green">${it.message}</div>
 	</c:if>
 
+<<<<<<< HEAD
 	<div class="col-lg-6 col-lg-offset-3">
 		<div class="well">
 			<div class="container">
 				<div class="row">
 					<div class="col-lg-6">
-						<form:form id="myForm" method="post" action="signup"
+						<form id="myForm" method="post" action="signup2"
 							class="bs-example form-horizontal">
 							<fieldset>
 								<legend>User Signup Form</legend>
@@ -187,62 +176,130 @@
 											value="${it.user.country}" />
 									</div>
 								</div>
+=======
+	
+	<section class="signup_section">
+		<table class="signup_section-table">
+				<th class="signup_section-table-header">Registrate</th>
+		</table>
+
+		<form:form id="myForm" class="signup_section-form" method="post" action="signup">
+			<label for="firstNameInput" class="signup_section-form-labels">Nombre</label>
+			<input type="text" class="signup_section-form-inputs" name="firstName" id="firstNameInput" placeholder="Tomas" value="${it.user.firstName}" />
+			
+			<label for="lastNameInput" class="signup_section-form-labels">Apellido</label>
+			<input type="text" class="signup_section-form-inputs" name="lastName" id="lastNameInput" placeholder="Vuka" value="${it.user.lastName}" />
+			
+			<label for="emailAddressInput" class="signup_section-form-labels">Email</label>
+			<input type="text" class="signup_section-form-inputs" name="emailAddress" id="emailAddressInput" placeholder="tomas.vuka23@me.com" value="${it.user.emailAddress}" />
+			
+			<label for="passwordInput" class="signup_section-form-labels">Password</label>
+			<input type="password" class="signup_section-form-inputs" name="password" id="passwordInput"  value="${it.user.password}" />					
+			
+			<label for="birthdateInput" class="signup_section-form-labels">Fecha de Nacimiento</label>
+			<div class="date form_date"
+			data-date-format="mm/dd/yyyy" data-date-viewmode="years">
+					<c:set var="myDate">
+						<fmt:formatDate pattern="MM/dd/yyyy" value="${it.user.birthdate}" />
+					</c:set>
+					<input type="text" class="signup_section-form-inputs" name="birthdate" id="birthdateInput" placeholder="09/11/2001" value="${myDate}" />
+			</div>
+>>>>>>> 142cefe05d6b1e30ca188a6e66c86eacbc5db021
 								
-								<div class="form-group">
-									<label for="interestInput" class="col-lg-3 control-label">Interest</label>
-									<div class="col-lg-9">
-										<input type="text" class="form-control" name="interest"
-											id="interestInput" placeholder="interest"
-											value="${it.user.interest}" />
-									</div>
+			<label for="phoneInput" class="signup_section-form-labels">Telefono</label>
+			<input type="text" class="signup_section-form-inputs" name="phone" id="phoneInput" placeholder="156660911" value="${it.user.phone}" />
+									
+			<label for="countryInput" class="signup_section-form-labels">Pais</label>
+			<input type="text" class="signup_section-form-inputs" name="country" id="countryInput" placeholder="Argentina" value="${it.user.country}" />
+									
+			<label for="interestInput" class="signup_section-form-labels">Interes</label>
+			<select class="signup_section-form-option" name="interest" id="interestInput" value="${it.user.interest}" >
+				  <option disabled selected>Selecciona un Interes</option>
+				  <option value="1">Educativo</option>
+				  <option value="2">Cultural</option>
+				  <option value="3">Ambiental</option>
+				</select >
+												
+			<label for="roleInput" class="signup_section-form-labels">Rol</label>
+			<select class="signup_section-form-option" name="role" id="roleInput" value="${it.user.role}">
+				  <option disabled selected>Selecciona un Rol</option>
+				  <option value="1" >Jugador</option>
+				  <option value="2">Donante</option>
+				  <option value="3">Beneficiario</option>
+				  <option value="4" >Gestor de Campañas</option>
+				</select>
+									
+			<div class="signup_section-form-btns">
+				<button class="btn btn-default">Cancel</button>
+				<button class="btn btn-primary" data-toggle="modal" data-target="#themodal">Submit</button>
+				<div id="themodal" class="modal fade" data-backdrop="static">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+								<h3>Signup Form Submission</h3>
+							</div>
+							<div class="modal-body">
+								<p>Are you sure you want to do this?</p>
+								<div class="progress progress-striped active">
+									<div id="doitprogress" class="progress-bar"></div>
 								</div>
-								<div class="form-group">
-									<label for="roleInput" class="col-lg-3 control-label">Role</label>
-									<div class="col-lg-9">
-										<input type="text" class="form-control" name="role"
-											id="roleInput" placeholder="role"
-											value="${it.user.role}" />
-									</div>
-								</div>
-
-								<div class="col-lg-9 col-lg-offset-3">
-									<button class="btn btn-default">Cancel</button>
-
-									<button class="btn btn-primary" data-toggle="modal"
-										data-target="#themodal">Submit</button>
-									<div id="themodal" class="modal fade" data-backdrop="static">
-										<div class="modal-dialog">
-											<div class="modal-content">
-												<div class="modal-header">
-													<button type="button" class="close" data-dismiss="modal"
-														aria-hidden="true">&times;</button>
-													<h3>Signup Form Submission</h3>
-												</div>
-												<div class="modal-body">
-													<p>Are you sure you want to do this?</p>
-													<div class="progress progress-striped active">
-														<div id="doitprogress" class="progress-bar"></div>
-													</div>
-												</div>
-												<div class="modal-footer">
-													<a href="#" class="btn btn-default" data-dismiss="modal">Close</a>
-													<input type="submit" value="Yes" id="yesbutton"
-														class="btn btn-primary" data-loading-text="Saving.."
-														data-complete-text="Submit Complete!">
-												</div>
-											</div>
-										</div>
-									</div>
-
-								</div>
-
-							</fieldset>
-						</form:form>
+							</div>
+							<div class="modal-footer">
+								<a href="#" class="btn btn-default" data-dismiss="modal">Close</a>
+								<input type="submit" value="Yes" id="yesbutton" class="btn btn-primary" data-loading-text="Saving.." data-complete-text="Submit Complete!">
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
-		</div>
-	</div>
+		</form:form>
+	</section>
+	
+	
+	<footer class="footer">
+		<img src="../../assets/img/gg.png" class="footer-img">
+		<p class="footer-paragraph">2017 © puto el que copia</p>
+		<div class="footer-div">
+				<table class="footer_table-about">
+					<th class="footer-table-about-header">About</th>
+					<tr class="footer-table-row">
+						<td class="footer-table-col">
+							<a href="" class="footers-titles-links">FAQ</a>
+						</td>
+					</tr>
+					<tr class="footer-table-row">
+						<td class="footer-table-col">
+							<a href="" class="footers-titles-links">Contact</a>
+						</td>
+					</tr>
+					<tr class="footer-table-row">
+						<td class="footer-table-col">
+							<a href="" class="footers-titles-links">Tutorial</a>
+						</td>
+					</tr>
+				</table>
+				<table class="footer_table-social">
+					<th class="footer-table-social-header">Follow Us</th>
+					<tr class="footer-table-row">
+						<td class="footer-table-col">
+							<a href="" class="social-links">
+								<img src="../../assets/img/face.png">
+							</a>
+							<a href="" class="social-links">
+								<img src="../../assets/img/twitter.png">
+							</a>
+							<a href="" class="social-links">
+								<img src="../../assets/img/gmail.png">
+							</a>
+							<a href="" class="social-links">
+								<img src="../../assets/img/email.png">
+							</a>
+						</td>
+					</tr>
+				</table>
+		 </div>
+		 </footer>
 
 	<script>
 		$(function() {

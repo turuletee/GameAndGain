@@ -34,17 +34,17 @@ public class AdminResource implements AdminResourceInterface {
 	private AdminService adminService; //reemplazar por el tag que se encuentra en AdminServiceImple : @Service("adminService")
 
 	@GET
-	@Path("signup")
+	@Path("signup2")
 	@Produces(MediaType.TEXT_HTML)
-	public Response signup() {
-		return Response.ok(new Viewable("/signup")).build();
+	public Response signup2() {
+		return Response.ok(new Viewable("/signup2")).build();
 	}
 
 	@POST
-	@Path("signup")
+	@Path("signup2")
 	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
 	@Produces(MediaType.TEXT_HTML)
-	public Response signup(@FormParam("emailAddress") String emailAddress,
+	public Response signup2(@FormParam("emailAddress") String emailAddress,
 			@FormParam("password") String password,
 			@FormParam("firstName") String firstName,
 			@FormParam("lastName") String lastName,
@@ -80,25 +80,25 @@ public class AdminResource implements AdminResourceInterface {
 			map.put("message", "User Name exists. Try another user name");
 			map.put("student", user);
 			return Response.status(Status.BAD_REQUEST)
-					.entity(new Viewable("/signup", map)).build();
+					.entity(new Viewable("/signup2", map)).build();
 		} else {
 			adminService.save(user);
-			return Response.ok().entity(new Viewable("/login")).build();
+			return Response.ok().entity(new Viewable("/login2")).build();
 		}
 	}
 
 	@GET
-	@Path("login")
+	@Path("login2")
 	@Produces(MediaType.TEXT_HTML)
-	public Response login() {
-		return Response.ok(new Viewable("/login")).build();
+	public Response login2() {
+		return Response.ok(new Viewable("/login2")).build();
 	}
 
 	@POST
-	@Path("login")
+	@Path("login2")
 	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
 	@Produces(MediaType.TEXT_HTML)
-	public Response login(@FormParam("emailAddress") String emailAddress,
+	public Response login2(@FormParam("emailAddress") String emailAddress,
 			@FormParam("password") String password) {
 
 		if (emailAddress == null || password == null) {

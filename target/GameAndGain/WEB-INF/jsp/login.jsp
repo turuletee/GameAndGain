@@ -80,17 +80,16 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-lg-6">
-						<form:form id="myForm" method="post" action="login"
+						<form:form id="myForm" method="post" action="login2"
 							class="bs-example form-horizontal">
 							<fieldset>
 								<legend>Student Enrollment Login Form</legend>
 
 								<div class="form-group">
-									<label for="userNameInput" class="col-lg-3 control-label">User
-										Name</label>
+									<label for="emailAddressInput" class="col-lg-3 control-label">eMail</label>
 									<div class="col-lg-9">
-										<input type="text" class="form-control" name="userName"
-											id="userNameInput" placeholder="User Name" />
+										<input type="text" class="form-control" name="emailAddress"
+											id="emailAddressInput" placeholder="Email" />
 									</div>
 								</div>
 

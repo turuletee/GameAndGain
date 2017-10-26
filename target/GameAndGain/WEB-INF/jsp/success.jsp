@@ -57,7 +57,7 @@
 		</div>
 		<div class="panel-body">
 		<div class="alert alert-dismissable alert-success">
-              <button type="button" class="close" data-dismiss="alert">Ã—</button>
+              <button type="button" class="close" data-dismiss="alert">×</button>
               <strong>Well done!</strong> You successfully logged-into the system. 
               Now you can explore the complete features!
             </div>

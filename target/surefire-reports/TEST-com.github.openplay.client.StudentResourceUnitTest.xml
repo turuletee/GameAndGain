@@ -27,9 +27,9 @@
     <property name="user.variant" value=""/>
     <property name="os.name" value="Windows 7"/>
     <property name="net.sourceforge.cobertura.datafile" value="C:\Users\Juan\Documents\GitHub\GameAndGain\target\cobertura\cobertura.ser"/>
-    <property name="classworlds.conf" value="C:\Users\Juan\workspace\.metadata\.plugins\org.eclipse.m2e.launching\launches\m2conf4020434911894043218.tmp"/>
+    <property name="classworlds.conf" value="C:\Users\Juan\workspace\.metadata\.plugins\org.eclipse.m2e.launching\launches\m2conf52930263391339311.tmp"/>
     <property name="sun.jnu.encoding" value="Cp1252"/>
-    <property name="java.library.path" value="C:\Program Files\Java\jdk1.8.0_144\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:/Program Files/Java/jre1.8.0_144/bin/server;C:/Program Files/Java/jre1.8.0_144/bin;C:/Program Files/Java/jre1.8.0_144/lib/amd64;C:\ProgramData\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Users\Juan\AppData\Local\GitHubDesktop\bin;C:\Users\Juan\Downloads\eclipse-jee-kepler-SR1-win32-x86_64\eclipse;;."/>
+    <property name="java.library.path" value="C:\Program Files\Java\jdk1.8.0_144\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:/Program Files/Java/jre1.8.0_144/bin/server;C:/Program Files/Java/jre1.8.0_144/bin;C:/Program Files/Java/jre1.8.0_144/lib/amd64;C:\ProgramData\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\Java\jdk1.8.0_144\\bin;;C:\Users\Juan\Downloads\eclipse-jee-kepler-SR1-win32-x86_64\eclipse;;."/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="java.class.version" value="52.0"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>

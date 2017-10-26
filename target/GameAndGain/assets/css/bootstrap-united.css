@@ -2472,7 +2472,7 @@ fieldset[disabled] .btn-primary:active,
 .btn-primary.disabled.active,
 .btn-primary[disabled].active,
 fieldset[disabled] .btn-primary.active {
-  background-color: #dd4814;
+  background-color: white;
   border-color: #dd4814;
 }
 

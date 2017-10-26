@@ -80,7 +80,7 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-lg-6">
-						<form:form id="myForm" method="post" action="login"
+						<form:form id="myForm" method="post" action="login2"
 							class="bs-example form-horizontal">
 							<fieldset>
 								<legend>Student Enrollment Login Form</legend>
