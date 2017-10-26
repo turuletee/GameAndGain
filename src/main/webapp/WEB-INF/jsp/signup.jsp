@@ -93,90 +93,6 @@
 	<c:if test="${not empty it.message}">
 		<div class="green">${it.message}</div>
 	</c:if>
-
-<<<<<<< HEAD
-	<div class="col-lg-6 col-lg-offset-3">
-		<div class="well">
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-6">
-						<form id="myForm" method="post" action="signup2"
-							class="bs-example form-horizontal">
-							<fieldset>
-								<legend>User Signup Form</legend>
-
-
-								<div class="form-group">
-									<label for="passwordInput" class="col-lg-3 control-label">Password</label>
-									<div class="col-lg-9">
-										<input type="password" class="form-control" name="password"
-											id="passwordInput" placeholder="Password"
-											value="${it.user.password}" />
-									</div>
-								</div>
-
-								<div class="form-group">
-									<label for="firstNameInput" class="col-lg-3 control-label">First
-										Name</label>
-									<div class="col-lg-9">
-										<input type="text" class="form-control" name="firstName"
-											id="firstNameInput" placeholder="First Name"
-											value="${it.user.firstName}" />
-									</div>
-								</div>
-
-								<div class="form-group">
-									<label for="lastNameInput" class="col-lg-3 control-label">Last
-										Name</label>
-									<div class="col-lg-9">
-										<input type="text" class="form-control" name="lastName"
-											id="lastNameInput" placeholder="Last Name"
-											value="${it.user.lastName}" />
-									</div>
-								</div>
-
-								<div class="form-group">
-									<label for="birthdateInput" class="col-lg-3 control-label">Date
-										of Birth</label>
-									<div class="date form_date col-lg-9"
-										data-date-format="mm/dd/yyyy" data-date-viewmode="years">
-										<c:set var="myDate">
-											<fmt:formatDate pattern="MM/dd/yyyy"
-												value="${it.user.birthdate}" />
-										</c:set>
-										<input type="text" class="form-control" name="birthdate"
-											id="birthdateInput" placeholder="Birthdate"
-											value="${myDate}" />
-									</div>
-								</div>
-
-								<div class="form-group">
-									<label for="emailAddressInput" class="col-lg-3 control-label">Email
-										Address</label>
-									<div class="col-lg-9">
-										<input type="text" class="form-control" name="emailAddress"
-											id="emailAddressInput" placeholder="Email Address"
-											value="${it.user.emailAddress}" />
-									</div>
-								</div>
-								
-								<div class="form-group">
-									<label for="phoneInput" class="col-lg-3 control-label">Phone</label>
-									<div class="col-lg-9">
-										<input type="text" class="form-control" name="phone"
-											id="phoneInput" placeholder="phone"
-											value="${it.user.phone}" />
-									</div>
-								</div>
-								<div class="form-group">
-									<label for="countryInput" class="col-lg-3 control-label">Country</label>
-									<div class="col-lg-9">
-										<input type="text" class="form-control" name="country"
-											id="countryInput" placeholder="country"
-											value="${it.user.country}" />
-									</div>
-								</div>
-=======
 	
 	<section class="signup_section">
 		<table class="signup_section-table">
@@ -204,7 +120,7 @@
 					</c:set>
 					<input type="text" class="signup_section-form-inputs" name="birthdate" id="birthdateInput" placeholder="09/11/2001" value="${myDate}" />
 			</div>
->>>>>>> 142cefe05d6b1e30ca188a6e66c86eacbc5db021
+
 								
 			<label for="phoneInput" class="signup_section-form-labels">Telefono</label>
 			<input type="text" class="signup_section-form-inputs" name="phone" id="phoneInput" placeholder="156660911" value="${it.user.phone}" />

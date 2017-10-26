@@ -7,8 +7,8 @@
 <body>
 	<div class="navbar">
 		<div class="access_menu">
-			<a class="access_menu-link" href="webapi/adminResource/signup2">Signup</a>
-			<a class="access_menu-link" href="webapi/adminResource/login2">Login</a>
+			<a class="access_menu-link" href="webapi/adminResource/signup">Signup</a>
+			<a class="access_menu-link" href="webapi/adminResource/login">Login</a>
 		</div>
 		<div class="logo_header">
 			<section class="logo_title"></section>

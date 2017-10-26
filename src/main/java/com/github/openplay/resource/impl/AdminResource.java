@@ -34,17 +34,17 @@ public class AdminResource implements AdminResourceInterface {
 	private AdminService adminService; //reemplazar por el tag que se encuentra en AdminServiceImple : @Service("adminService")
 
 	@GET
-	@Path("signup2")
+	@Path("signup")
 	@Produces(MediaType.TEXT_HTML)
-	public Response signup2() {
-		return Response.ok(new Viewable("/signup2")).build();
+	public Response signup() {
+		return Response.ok(new Viewable("/signup")).build();
 	}
 
 	@POST
-	@Path("signup2")
+	@Path("signup")
 	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
 	@Produces(MediaType.TEXT_HTML)
-	public Response signup2(@FormParam("emailAddress") String emailAddress,
+	public Response signup(@FormParam("emailAddress") String emailAddress,
 			@FormParam("password") String password,
 			@FormParam("firstName") String firstName,
 			@FormParam("lastName") String lastName,
@@ -71,8 +71,7 @@ public class AdminResource implements AdminResourceInterface {
 		user.setCountry(country);
 		user.setInterests_InterestId(Integer.parseInt(interest));
 		user.setRoles_RoleId(Integer.parseInt(role));
-		user.setBirthdate(new java.sql.Date(new SimpleDateFormat(
-				"MM/dd/yyyy").parse(birthdate.substring(0, 10)).getTime()));
+		user.setBirthdate(new java.sql.Date(new SimpleDateFormat("MM/dd/yyyy").parse(birthdate).getTime()));
 
 
 		if (adminService.findByUserName(emailAddress)) {
@@ -80,25 +79,25 @@ public class AdminResource implements AdminResourceInterface {
 			map.put("message", "User Name exists. Try another user name");
 			map.put("student", user);
 			return Response.status(Status.BAD_REQUEST)
-					.entity(new Viewable("/signup2", map)).build();
+					.entity(new Viewable("/signup", map)).build();
 		} else {
 			adminService.save(user);
-			return Response.ok().entity(new Viewable("/login2")).build();
+			return Response.ok().entity(new Viewable("/login")).build();
 		}
 	}
 
 	@GET
-	@Path("login2")
+	@Path("login")
 	@Produces(MediaType.TEXT_HTML)
-	public Response login2() {
-		return Response.ok(new Viewable("/login2")).build();
+	public Response login() {
+		return Response.ok(new Viewable("/login")).build();
 	}
 
 	@POST
-	@Path("login2")
+	@Path("login")
 	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
 	@Produces(MediaType.TEXT_HTML)
-	public Response login2(@FormParam("emailAddress") String emailAddress,
+	public Response login(@FormParam("emailAddress") String emailAddress,
 			@FormParam("password") String password) {
 
 		if (emailAddress == null || password == null) {
