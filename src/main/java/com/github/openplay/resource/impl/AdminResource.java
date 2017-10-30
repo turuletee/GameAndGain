@@ -21,6 +21,7 @@ import org.glassfish.jersey.server.mvc.Viewable;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import com.github.openplay.model.impl.Comment;
 import com.github.openplay.model.impl.User;
 import com.github.openplay.resource.AdminResourceInterface;
 import com.github.openplay.service.AdminService;
@@ -112,4 +113,41 @@ public class AdminResource implements AdminResourceInterface {
 					.entity(new Viewable("/failure")).build();
 		}
 	}
+	
+	@GET
+	@Path("comment")
+	@Produces(MediaType.TEXT_HTML)
+	public Response getComments() {
+		return Response.ok(new Viewable("/comment")).build();
+	}
+	
+	@POST
+	@Path("createComment")
+	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+	@Produces(MediaType.TEXT_HTML)
+	public Response createComment(
+			@FormParam("userIdFrom") String users_UserIdFrom,
+			@FormParam("userIdTo") String users_UserIdTo,
+			@FormParam("date") String date,
+			@FormParam("comment") String comment
+			)
+			throws ParseException {
+
+		if (users_UserIdFrom == null || users_UserIdTo == null || date == null
+				|| comment == null) {
+			return Response.status(Status.PRECONDITION_FAILED).build();
+		}
+
+		Comment newComment = new Comment();
+		
+		newComment.setUsers_UserIdFrom(Integer.parseInt(users_UserIdFrom));
+		newComment.setUsers_UserIdTo(Integer.parseInt(users_UserIdTo));
+		newComment.setDate(new java.sql.Date(new SimpleDateFormat("MM/dd/yyyy").parse(date).getTime()));
+		newComment.setComment(comment);
+		
+		adminService.saveComment(newComment);
+		return Response.ok().entity(new Viewable("/comment")).build();
+	}
+	
 }
+
