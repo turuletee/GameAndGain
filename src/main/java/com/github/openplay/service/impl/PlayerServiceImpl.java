@@ -7,11 +7,11 @@ import org.springframework.transaction.annotation.Transactional;
 import com.github.openplay.model.CampaingsHasUsersInterface;
 import com.github.openplay.model.impl.CampaignsHasUsers;
 import com.github.openplay.repository.CampaignsHasUsersRepository;
-import com.github.openplay.service.PlayerServiceInterface;
+import com.github.openplay.service.PlayerService;
 
 
 @Service("playerService")
-public class PlayerServiceImpl implements PlayerServiceInterface{
+public class PlayerServiceImpl implements PlayerService{
 
 	@Autowired
 	private CampaignsHasUsersRepository campaignsHasUsersRepository;
