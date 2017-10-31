@@ -1,5 +1,7 @@
 package com.github.openplay.service;
 
-public interface PlayerService {
+import com.github.openplay.model.CampaingsHasUsersInterface;
 
+public interface PlayerService {
+	CampaingsHasUsersInterface save(CampaingsHasUsersInterface campaign);
 }
