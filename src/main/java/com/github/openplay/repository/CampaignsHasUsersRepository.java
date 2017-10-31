@@ -7,5 +7,5 @@ import com.github.openplay.model.impl.CampaignsHasUsers;
 
 @Repository("campaignsHasUserRepository")
 public interface CampaignsHasUsersRepository extends JpaRepository<CampaignsHasUsers, Integer> {
-
+	
 }
