@@ -20,7 +20,7 @@ import com.github.openplay.model.impl.Campaign;
 import com.github.openplay.model.impl.CampaignsHasUsers;
 import com.github.openplay.model.impl.User;
 import com.github.openplay.resource.PlayerResourceInterface;
-import com.github.openplay.service.impl.PlayerServiceImpl;
+import com.github.openplay.service.PlayerService;
 
 @Component
 @Path("playerResource")
@@ -28,13 +28,13 @@ import com.github.openplay.service.impl.PlayerServiceImpl;
 public class PlayerResource implements PlayerResourceInterface{
 
 	@Autowired
-	private PlayerServiceImpl playerServiceImpl; 
+	private PlayerService playerService; 
 	
 	@POST
 	@Path("registerCampaign")
 	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
 	@Produces(MediaType.TEXT_HTML)
-	public Response registerCmapaign(@FormParam("idUser") String idUser ,
+	public Response registerCampaign(@FormParam("idUser") String idUser ,
 			@FormParam("idCampaign") String idCampaign)
 			throws ParseException {
 
@@ -42,8 +42,8 @@ public class PlayerResource implements PlayerResourceInterface{
 			return Response.status(Status.PRECONDITION_FAILED).build();
 		}
 		
-		Integer idUserint = new Integer (idUser);
-		Integer idCampaingInt=new Integer(idCampaign);
+		Integer idUserint = Integer.parseInt (idUser);
+		Integer idCampaingInt = Integer.parseInt(idCampaign);
 		
 		Campaign campaign = new Campaign();
 		campaign.setId(idCampaingInt.intValue());
@@ -53,9 +53,9 @@ public class PlayerResource implements PlayerResourceInterface{
 		
 		CampaignsHasUsers campaignsHasUsers = new CampaignsHasUsers();
 		campaignsHasUsers.setCampaign(campaign);
+		campaignsHasUsers.setUser(user);
 		
-		
-		playerServiceImpl.save(campaignsHasUsers);
+		playerService.save(campaignsHasUsers);
 		
 		return Response.ok().entity(new Viewable("/login")).build();
 	}
