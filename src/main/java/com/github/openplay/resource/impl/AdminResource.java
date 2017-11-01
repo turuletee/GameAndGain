@@ -115,14 +115,14 @@ public class AdminResource implements AdminResourceInterface {
 	}
 	
 	@GET
-	@Path("comment")
+	@Path("TemporalComment")
 	@Produces(MediaType.TEXT_HTML)
 	public Response getComments() {
-		return Response.ok(new Viewable("/comment")).build();
+		return Response.ok(new Viewable("/TemporalComment")).build();
 	}
 	
 	@POST
-	@Path("createComment")
+	@Path("TemporalComment")
 	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
 	@Produces(MediaType.TEXT_HTML)
 	public Response createComment(
@@ -146,7 +146,20 @@ public class AdminResource implements AdminResourceInterface {
 		newComment.setComment(comment);
 		
 		adminService.saveComment(newComment);
-		return Response.ok().entity(new Viewable("/comment")).build();
+		return Response.ok().entity(new Viewable("/TemporalComment")).build();
+	}
+
+	@Override
+	public Response createComment() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Response getComment(String users_UserIdFrom, String users_UserIdTo,
+			String date, String comment) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 }
