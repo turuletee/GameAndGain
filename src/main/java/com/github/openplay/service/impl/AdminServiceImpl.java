@@ -27,6 +27,10 @@ public class AdminServiceImpl implements  AdminService {
 	public CommentInterface saveComment(CommentInterface comment) {
 		return commentRepository.save((Comment)comment);
 	}
+	
+	public CommentInterface getComment(CommentInterface comment) {
+		return commentRepository.findById((Comment)comment);
+	}
 
 	public boolean findByLogin(String userName, String password) {	
 		UserInterface usr = adminRepository.findByUserName(userName);
