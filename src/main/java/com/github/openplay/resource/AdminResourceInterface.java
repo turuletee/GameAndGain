@@ -16,5 +16,9 @@ public interface AdminResourceInterface {
 	public Response login();
 
 	public Response login(String userName, String password);
+	
+	public Response createComment();
+
+	public Response getComment(String users_UserIdFrom, String users_UserIdTo, String date, String comment) ;
 
 }
