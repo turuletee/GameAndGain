@@ -6,31 +6,34 @@ import com.github.openplay.model.impl.User;
 
 public interface CommentInterface {
 
-	public int getCommentId();
+	public int geCommentId();
 
-	public void setCommentId(int commentId);
+	public void seCommentId(int commentId);
 
-	public Date getDate();
+	public int getUsers_userIdFrom();
 
-	public void setDate(Date date);
+	public void setUsers_userIdFrom(int users_UserIdFrom);
+
+	public int getUsers_userIdTo();
+
+	public void setUsers_userIdTo(int users_UserIdTo);
 
 	public String getComment();
 
 	public void setComment(String comment);
 
-	public int getUsers_UserIdFrom();
+	public Date getDate();
 
-	public void setUsers_UserIdFrom(int users_UserIdFrom);
-
-	public int getUsers_UserIdTo();
-
-	public void setUsers_UserIdTo(int users_UserIdTo);
-
-	public User getUserfrom();
+	public void setDate(Date date);
+	
+	/*
+	 	public User getUserfrom();
 
 	public void setUserfrom(User userfrom);
 
 	public User getUserto();
 
 	public void setUserto(User userto); 
+	 */
+	
 }
