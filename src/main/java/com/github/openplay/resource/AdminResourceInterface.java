@@ -19,6 +19,7 @@ public interface AdminResourceInterface {
 	
 	public Response createComment();
 
-	public Response getComment(String users_UserIdFrom, String users_UserIdTo, String date, String comment) ;
+	public Response createComment(String users_UserIdFrom, String users_UserIdTo, String date, String comment)throws ParseException; ;
 
 }
+
