@@ -1,4 +1,5 @@
 
+
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
     
@@ -15,15 +16,15 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form action="TemporalComment" method="post">
-		<input type="text" value="${it.comment.users_UserIdFrom}" id = "userIdFrom" placeholder="1"/>
-		<input type="text" value="${it.comment.users_UserIdTo}" id = "userIdTo" placeholder="2"/>
-		<input type="text" value="${it.comment.date}" id = "date" placeholder="10-9-17"/>
-		<textarea id="txtComment" value="${it.comment.comment}" style="width: 300px; height: 100px;">
+	<form action="temporalComment" method="post">
+		<input type="text" value="${it.comment.users_UserIdFrom}" name="users_UserIdFrom" id = "userIdFrom" placeholder="1"/>
+		<input type="text" value="${it.comment.users_UserIdTo}" name="users_UserIdTo" id = "userIdTo" placeholder="2"/>
+		<input type="text" value="${it.comment.date}" name="date" id = "date" placeholder="10-9-17"/>
+		<textarea id="txtComment" value="${it.comment.comment}" name="comment" style="width: 300px; height: 100px;">
 			
 		</textarea>
 		<br>
 		<input type="submit" value="Comment" id = "comment"/>
-</form>
+	</form>
 </body>
 </html>
