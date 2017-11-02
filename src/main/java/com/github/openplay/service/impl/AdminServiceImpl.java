@@ -17,6 +17,7 @@ public class AdminServiceImpl implements  AdminService {
 
 	@Autowired
 	private AdminRepository adminRepository;
+	@Autowired
 	private CommentRepository commentRepository;
 	
 	@Transactional
@@ -24,13 +25,14 @@ public class AdminServiceImpl implements  AdminService {
 		return adminRepository.save((User)user);
 	}
 	
+	@Transactional
 	public CommentInterface saveComment(CommentInterface comment) {
 		return commentRepository.save((Comment)comment);
 	}
 	
-	public CommentInterface getComment(CommentInterface comment) {
-		return commentRepository.findById((Comment)comment);
-	}
+	//public CommentInterface getComment(CommentInterface comment) {
+	//	return commentRepository.findById((Comment)comment);
+	//}
 
 	public boolean findByLogin(String userName, String password) {	
 		UserInterface usr = adminRepository.findByUserName(userName);
