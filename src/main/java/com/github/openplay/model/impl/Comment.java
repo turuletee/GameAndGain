@@ -9,6 +9,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Past;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 
@@ -17,6 +18,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Component;
 
 import com.github.openplay.model.CommentInterface;
+import com.github.openplay.model.UserInterface;
 
 @Component
 @XmlRootElement(name="comment")
@@ -42,6 +44,8 @@ public class Comment implements CommentInterface {
 	@NotNull
 	private int users_UserIdTo;
 	
+	/*
+	
 	
 	//To get the user id from the user who sent the comment 
 	@ManyToOne
@@ -55,21 +59,30 @@ public class Comment implements CommentInterface {
 	@JoinColumn(name = "users_UserIdTo", insertable = false, updatable = false)
 	@NotNull
 	private User userto;
+	*/
 	
-	public int getCommentId() {
+	public int geCommentId() {
 		return commentId;
 	}
 
-	public void setCommentId(int commentId) {
+	public void seCommentId(int commentId) {
 		this.commentId = commentId;
 	}
 
-	public Date getDate() {
-		return date;
+	public int getUsers_userIdFrom() {
+		return users_UserIdFrom;
 	}
 
-	public void setDate(Date date) {
-		this.date = date;
+	public void setUsers_userIdFrom(int users_UserIdFrom) {
+		this.users_UserIdFrom = users_UserIdFrom;
+	}
+
+	public int getUsers_userIdTo() {
+		return users_UserIdTo;
+	}
+
+	public void setUsers_userIdTo(int users_UserIdTo) {
+		this.users_UserIdTo = users_UserIdTo;
 	}
 
 	public String getComment() {
@@ -80,48 +93,13 @@ public class Comment implements CommentInterface {
 		this.comment = comment;
 	}
 
-	public int getUsers_UserIdFrom() {
-		return users_UserIdFrom;
+	public Date getDate() {
+		return date;
 	}
 
-	public void setUsers_UserIdFrom1(int users_UserIdFrom) {
-		this.users_UserIdFrom = users_UserIdFrom;
+	public void setDate(Date date) {
+		this.date = date;
 	}
-
-	public int getUsers_UserIdTo() {
-		return users_UserIdTo;
-	}
-
-	public void setUsers_UserIdTo1(int users_UserIdTo) {
-		this.users_UserIdTo = users_UserIdTo;
-	}
-
-	public User getUserfrom() {
-		return userfrom;
-	}
-
-	public void setUserfrom(User userfrom) {
-		this.userfrom = userfrom;
-	}
-
-	public User getUserto() {
-		return userto;
-	}
-
-	public void setUserto(User userto) {
-		this.userto = userto;
-	}
-
-	@Override
-	public void setUsers_UserIdFrom(int users_UserIdFrom) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void setUsers_UserIdTo(int users_UserIdTo) {
-		// TODO Auto-generated method stub
-		
-	}
+	
 	
 }
