@@ -2,8 +2,8 @@ package com.github.openplay.resource.impl;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.ws.rs.Consumes;
@@ -21,6 +21,7 @@ import org.glassfish.jersey.server.mvc.Viewable;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import com.github.openplay.model.CommentInterface;
 import com.github.openplay.model.impl.Comment;
 import com.github.openplay.model.impl.User;
 import com.github.openplay.resource.AdminResourceInterface;
@@ -113,43 +114,5 @@ public class AdminResource implements AdminResourceInterface {
 					.entity(new Viewable("/failure")).build();
 		}
 	}
-	
-	@GET
-	@Path("temporalComment")
-	@Produces(MediaType.TEXT_HTML)
-	public Response createComment() {
-		return Response.ok(new Viewable("/TemporalComment")).build();
-	}
-	
-	@POST
-	@Path("temporalComment")
-	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-	@Produces(MediaType.TEXT_HTML)
-	public Response createComment(
-			@FormParam("users_UserIdFrom") String users_UserIdFrom,
-			@FormParam("users_UserIdTo") String users_UserIdTo,
-			@FormParam("date") String date,
-			@FormParam("comment") String comment
-			)
-			throws ParseException {
 
-		if (users_UserIdFrom == null || users_UserIdTo == null || date == null
-				|| comment == null) {
-			return Response.status(Status.PRECONDITION_FAILED).build();
-		}
-
-		Comment newComment = new Comment();
-
-
-		newComment.setUsers_userIdFrom(Integer.parseInt(users_UserIdFrom));
-		newComment.setUsers_userIdTo(Integer.parseInt(users_UserIdTo));
-		newComment.setDate(new java.sql.Date(new SimpleDateFormat("MM/dd/yyyy").parse(date).getTime()));
-		newComment.setComment(comment);
-		
-		
-		adminService.saveComment(newComment);
-		return Response.ok().entity(new Viewable("/success")).build();
-	}
-
-	
 }
