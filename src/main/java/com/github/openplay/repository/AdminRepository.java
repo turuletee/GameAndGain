@@ -14,4 +14,7 @@ public interface AdminRepository extends JpaRepository<User, Long> {
 	@Query("select u from User u where u.mail = :userName")
 	UserInterface findByUserName(@Param("userName") String userName);
 	
+	@Query("select i from User i where i.mail = :emailAddress")
+	UserInterface findByUserRoleId(@Param("emailAddress") String emailAddress);
+	
 }

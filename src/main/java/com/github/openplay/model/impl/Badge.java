@@ -33,9 +33,6 @@ public class Badge implements BadgeInterface{
 	@NotEmpty
 	private String name;
 	
-	@NotEmpty
-	@Column(name="icon",columnDefinition="blob")
-	@Lob private byte[] icon;
 	
 	@NotNull
 	private int value;
@@ -56,13 +53,6 @@ public class Badge implements BadgeInterface{
 		this.name = name;
 	}
 
-	public byte[] getIcon() {
-		return icon;
-	}
-
-	public void setIcon(byte[] icon) {
-		this.icon = icon;
-	}
 
 	public int getValue() {
 		return value;

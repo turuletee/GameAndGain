@@ -98,8 +98,7 @@ public class AdminResource implements AdminResourceInterface {
 	@Path("login")
 	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
 	@Produces(MediaType.TEXT_HTML)
-	public Response login(@FormParam("emailAddress") String emailAddress,
-			@FormParam("password") String password) {
+	public Response login(@FormParam("emailAddress") String emailAddress, @FormParam("password") String password) {
 
 		if (emailAddress == null || password == null) {
 			return Response.status(Status.PRECONDITION_FAILED).build();
@@ -107,11 +106,22 @@ public class AdminResource implements AdminResourceInterface {
 
 		boolean found = adminService.findByLogin(emailAddress, password);
 		if (found) {
+			int valor = adminService.findByUserRoleId(emailAddress);
+			
+			if (valor==1){
 			return Response.ok().entity(new Viewable("/success")).build();
-		} else {
-			return Response.status(Status.BAD_REQUEST)
-					.entity(new Viewable("/failure")).build();
-		}
+		}else if(valor==2){
+				return Response.ok().entity(new Viewable("/donor")).build();
+			}else if(valor==3){
+				return Response.ok().entity(new Viewable("/beneficiary")).build();
+			}else if(valor==4){
+					return Response.ok().entity(new Viewable("/campaign_manager")).build();
+				}else {
+				return Response.status(Status.BAD_REQUEST).entity(new Viewable("/failure")).build();
+			}
+			}else {
+				return Response.status(Status.BAD_REQUEST).entity(new Viewable("/failure")).build();
+			}
 	}
 	
 	@GET

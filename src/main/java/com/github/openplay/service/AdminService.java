@@ -41,6 +41,7 @@ public interface AdminService {
 	boolean findByLogin(String userName, String password);
 	boolean findByUserName(String userName);	
 	UserInterface save(UserInterface user) ;
+	int findByUserRoleId(String emailAddress);
 	CommentInterface saveComment(CommentInterface comment);	
 	//CommentInterface getComment(CommentInterface comment);
 }

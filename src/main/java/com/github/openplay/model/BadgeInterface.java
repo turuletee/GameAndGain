@@ -12,10 +12,6 @@ public interface BadgeInterface {
 	
 	public void setName(String name);
 	
-	public byte[] getIcon();
-	
-	public void setIcon(byte[] icon);
-	
 	public int getValue();
 	
 	public void setValue(int value);

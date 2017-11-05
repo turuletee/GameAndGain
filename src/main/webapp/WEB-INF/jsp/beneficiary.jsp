@@ -1,19 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<link href="assets/css/bootstrap-united.css" rel="stylesheet" />
-<link href="assets/css/index.css" rel="stylesheet" />
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="../../assets/css/bootstrap-united.css" rel="stylesheet" />
+<link href="../../bootstrap/css/bootstrap-responsive.css" rel="stylesheet" />
+<link href="../../assets/css/beneficiary.css" rel="stylesheet" />
+<link rel="stylesheet" href="../../assets/css/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
 </head>
 <body>
 	<div class="navbar">
-		<div class="access_menu">
-			<a class="access_menu-link" href="webapi/adminResource/signup">Signup</a>
-			<a class="access_menu-link" href="webapi/adminResource/login">Login</a>
-			<a class="access_menu-link" href="webapi/adminResource/temporalComment">Comentario</a>
-		</div>
+		
 		<div class="logo_header">
 			<section class="logo_title"></section>
 		</div>
@@ -28,8 +25,14 @@
 		<div class="menu_bar">
 			<a class="menu_bar-link" href="#">INICIO</a>
 			<a class="menu_bar-link" href="#">MI PERFIL</a>
-			<a class="menu_bar-link" href="#">JUGAR</a>
+			
 			<a class="menu_bar-link" href="#">RANKINGS</a>
+			<a class="menu_bar-link" href="#" onclick="contentMenu()"><i class="fa fa-bars fa-inverse bars " aria-hidden="true"></i></a>
+			<div class="dropdown">
+				  <div id="myDropdown" class="dropdown-content">
+				    <a href="#home">Agregar una Obra</a>
+				  </div>
+			</div>
 			<input class="menu_bar-link search" type="text" name="searchIn" placeholder="Buscar">
 		</div>
 		<!-- /.nav-collapse -->
@@ -60,13 +63,13 @@
 					<td class="footer-table-col">
 						<div id="slideshow">
 		  					 <div >
-		   		 				<img src="assets/img/mc.jpg" class="slider-imgs">
+		   		 				<img src="../../assets/img/mc.jpg" class="slider-imgs">
 		   					</div>
 		   					<div>
-		    					<img src="assets/img/bel.jpg" class="slider-imgs">
+		    					<img src="../../assets/img/bel.jpg" class="slider-imgs">
 		    				</div>
 		   					<div>
-		     					<img src="assets/img/google.jpg" class="slider-imgs">
+		     					<img src="../../assets/img/google.jpg" class="slider-imgs">
 		   					</div>
 						</div>
 						<div >
@@ -74,18 +77,18 @@
 						</div>
 						<div id="slideshow-bene">
 		  					 <div >
-		   		 				<img src="assets/img/smile.jpg" class="slider-imgs">
+		   		 				<img src="../../assets/img/smile.jpg" class="slider-imgs">
 		   					</div>
 		   					<div>
-		    					<img src="assets/img/fundaleu.jpg" class="slider-imgs">
+		    					<img src="../../assets/img/fundaleu.jpg" class="slider-imgs">
 		    				</div>
 		   					<div>
-		     					<img src="assets/img/garrahan.png" class="slider-imgs">
+		     					<img src="../../assets/img/garrahan.png" class="slider-imgs">
 		   					</div>
 						</div>
 						<div class="paper">
 								
-							<img src="assets/img/paper.png" >
+							<img src="../../assets/img/paper.png" >
 							<p class="paper-text">Ya se sumaron millones de donantes y beneficiarios a la causa</p>
 						</div>
 						<div class="arrow"> 
@@ -93,8 +96,8 @@
 						</div>
 						<div class="paper-2">
 								
-							<img src="assets/img/paper2.png" >
-							<p class="paper-text-2">Â¿Que estas esperando?<br>
+							<img src="../../assets/img/paper2.png" >
+							<p class="paper-text-2">¿Que estas esperando?<br>
 								JUGA por una buena causa</p>
 							
 						</div>
@@ -105,7 +108,7 @@
 	</section>
 	
 	<footer class="footer">
-		<img src="assets/img/gg.png" class="footer-img">
+		<img src="../../assets/img/gg.png" class="footer-img">
 		<p class="footer-paragraph">2017 © puto el que copia</p>
 		<div class="footer-div">
 				<table class="footer_table-about">
@@ -131,31 +134,31 @@
 					<tr class="footer-table-row">
 						<td class="footer-table-col">
 							<a href="" class="social-links">
-								<img src="assets/img/face.png">
+								<img src="../../assets/img/face.png">
 							</a>
 							<a href="" class="social-links">
-								<img src="assets/img/twitter.png">
+								<img src="../../assets/img/twitter.png">
 							</a>
 							<a href="" class="social-links">
-								<img src="assets/img/gmail.png">
+								<img src="../../assets/img/gmail.png">
 							</a>
 							<a href="" class="social-links">
-								<img src="assets/img/email.png">
+								<img src="../../assets/img/email.png">
 							</a>
 						</td>
 					</tr>
 				</table>
 		 </div>
 		 </footer>
-	<script src="jquery-1.8.3.js">
+	<script src="../../jquery-1.8.3.js">
 		
 	</script>
 
-	<script src="bootstrap/js/bootstrap.js">
+	<script src="../../bootstrap/js/bootstrap.js">
 		
 	</script>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
-	<script type="text/javascript" src = "assets/js/index.js"></script>
+	<script type="text/javascript" src = "../../assets/js/index.js"></script>
 
 </body>
 </html>

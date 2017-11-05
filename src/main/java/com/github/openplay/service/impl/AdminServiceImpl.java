@@ -53,5 +53,12 @@ public class AdminServiceImpl implements  AdminService {
 		
 		return false;
 	}
+	
+	public int findByUserRoleId(String emailAddress) {
+		UserInterface usr = adminRepository.findByUserRoleId(emailAddress);
+		return usr.getRoles_RoleId();
+	}	
 
-	}
+}
+
+
