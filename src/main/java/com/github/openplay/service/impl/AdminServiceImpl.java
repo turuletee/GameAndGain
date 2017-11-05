@@ -1,5 +1,7 @@
 package com.github.openplay.service.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -17,22 +19,11 @@ public class AdminServiceImpl implements  AdminService {
 
 	@Autowired
 	private AdminRepository adminRepository;
-	@Autowired
-	private CommentRepository commentRepository;
 	
 	@Transactional
 	public UserInterface save(UserInterface user) {
 		return adminRepository.save((User)user);
 	}
-	
-	@Transactional
-	public CommentInterface saveComment(CommentInterface comment) {
-		return commentRepository.save((Comment)comment);
-	}
-	
-	//public CommentInterface getComment(CommentInterface comment) {
-	//	return commentRepository.findById((Comment)comment);
-	//}
 
 	public boolean findByLogin(String userName, String password) {	
 		UserInterface usr = adminRepository.findByUserName(userName);
