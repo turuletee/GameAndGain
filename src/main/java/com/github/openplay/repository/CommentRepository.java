@@ -11,8 +11,9 @@ import com.github.openplay.model.impl.Comment;
 @Repository("commentRepository")
 public interface CommentRepository extends JpaRepository<Comment, Long> {
 
-	//@Query("select comment from comments where users_UserIdTo = :Users_userIdTo")
-	//CommentInterface findById(@Param("Users_userIdTo") Comment comment);
+	@Query("select comments, fecha from comments c where c.users_UserIdTo = :users_userIdTo")
+	CommentInterface findUserComment(@Param("users_userIdTo") int users_userIdTo);
 	
 }
+
 
