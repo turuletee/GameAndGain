@@ -32,7 +32,6 @@
 
 package com.github.openplay.service;
 
-import com.github.openplay.model.CommentInterface;
 import com.github.openplay.model.UserInterface;
 
 
@@ -41,6 +40,4 @@ public interface AdminService {
 	boolean findByLogin(String userName, String password);
 	boolean findByUserName(String userName);	
 	UserInterface save(UserInterface user) ;
-	CommentInterface saveComment(CommentInterface comment);	
-	//CommentInterface getComment(CommentInterface comment);
 }
