@@ -1,5 +1,7 @@
 
 
+
+
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
     
@@ -26,5 +28,12 @@
 		<br>
 		<input type="submit" value="Comment" id = "comment"/>
 	</form>
+	
+	<form action="temporalGetComment" method="post">
+		<input type="text" value="${it.comment.users_UserIdTo}" name="users_UserIdTo" id = "userIdToT" placeholder="2"/>
+		<br>
+		<input type="submit" value="Traer" id = "commentT"/>
+	</form>
+	
 </body>
 </html>
