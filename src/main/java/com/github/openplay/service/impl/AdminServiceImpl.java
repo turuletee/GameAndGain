@@ -4,11 +4,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.github.openplay.model.BadgeInterface;
 import com.github.openplay.model.CommentInterface;
 import com.github.openplay.model.UserInterface;
+import com.github.openplay.model.impl.Badge;
 import com.github.openplay.model.impl.Comment;
 import com.github.openplay.model.impl.User;
 import com.github.openplay.repository.AdminRepository;
+import com.github.openplay.repository.BadgeRepository;
 import com.github.openplay.repository.CommentRepository;
 import com.github.openplay.service.AdminService;
 
@@ -19,6 +22,8 @@ public class AdminServiceImpl implements  AdminService {
 	private AdminRepository adminRepository;
 	@Autowired
 	private CommentRepository commentRepository;
+	@Autowired
+	private BadgeRepository badgeRepository;
 	
 	@Transactional
 	public UserInterface save(UserInterface user) {
@@ -57,6 +62,11 @@ public class AdminServiceImpl implements  AdminService {
 	public int findByUserRoleId(String emailAddress) {
 		UserInterface usr = adminRepository.findByUserRoleId(emailAddress);
 		return usr.getRoles_RoleId();
+	}
+
+	@Override
+	public BadgeInterface saveBadge(BadgeInterface badge) {
+		return badgeRepository.save((Badge)badge);
 	}	
 
 }

@@ -21,6 +21,7 @@ import org.glassfish.jersey.server.mvc.Viewable;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import com.github.openplay.model.impl.Badge;
 import com.github.openplay.model.impl.Comment;
 import com.github.openplay.model.impl.User;
 import com.github.openplay.resource.AdminResourceInterface;
@@ -160,6 +161,33 @@ public class AdminResource implements AdminResourceInterface {
 		adminService.saveComment(newComment);
 		return Response.ok().entity(new Viewable("/success")).build();
 	}
-
+	
+	@GET
+	@Path("badges")
+	@Produces(MediaType.TEXT_HTML)
+	public Response badges() {
+		return Response.ok(new Viewable("/badges")).build();
+	}
+	
+	@POST
+	@Path("createBadge")
+	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+	@Produces(MediaType.TEXT_HTML)
+	public Response createBadge(
+			@FormParam("badgeName") String badgeName,
+			@FormParam("badgeValue") String badgeValue)
+			throws ParseException {
+				if (badgeName == null) {
+					return Response.status(Status.PRECONDITION_FAILED).build();
+				}
+		
+				Badge newBadge = new Badge();
+				newBadge.setName(badgeName);
+				newBadge.setValue(Integer.parseInt(badgeValue));
+								
+				adminService.saveBadge(newBadge);
+				return Response.ok().entity(new Viewable("/success")).build();
+	}
+	
 	
 }

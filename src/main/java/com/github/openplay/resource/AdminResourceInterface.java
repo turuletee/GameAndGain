@@ -14,6 +14,10 @@ public interface AdminResourceInterface {
 			throws ParseException;
 
 	public Response login();
+	
+	public Response badges();
+	
+	public Response createBadge(String badgeName, String badgeValue) throws ParseException ;
 
 	public Response login(String userName, String password);
 	
