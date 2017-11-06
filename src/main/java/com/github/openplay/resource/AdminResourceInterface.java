@@ -22,6 +22,8 @@ public interface AdminResourceInterface {
 	public Response login(String userName, String password);
 	
 	public Response createComment();
+	
+	public Response showBadges();
 
 	public Response createComment(String users_UserIdFrom, String users_UserIdTo, String date, String comment)throws ParseException; ;
 

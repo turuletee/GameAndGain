@@ -1,7 +1,10 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <html>
 <head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link href="assets/css/bootstrap-united.css" rel="stylesheet" />
-<link href="bootstrap/css/bootstrap-responsive.css" rel="stylesheet" />
 <link href="assets/css/index.css" rel="stylesheet" />
 </head>
 <body>
@@ -9,6 +12,8 @@
 		<div class="access_menu">
 			<a class="access_menu-link" href="webapi/adminResource/signup">Signup</a>
 			<a class="access_menu-link" href="webapi/adminResource/login">Login</a>
+			<a class="access_menu-link" href="webapi/adminResource/temporalComment">Comentario</a>
+			<a class="access_menu-link" href="webapi/adminResource/badges">Administrar Insignias</a>
 		</div>
 		<div class="logo_header">
 			<section class="logo_title"></section>
@@ -26,9 +31,7 @@
 			<a class="menu_bar-link" href="#">MI PERFIL</a>
 			<a class="menu_bar-link" href="#">JUGAR</a>
 			<a class="menu_bar-link" href="#">RANKINGS</a>
-			<form >
-				<input type="text" class="menu_bar-link search" placeholder="Buscar">
-			</form>
+			<input class="menu_bar-link search" type="text" name="searchIn" placeholder="Buscar">
 		</div>
 		<!-- /.nav-collapse -->
 	</div>
@@ -92,7 +95,7 @@
 						<div class="paper-2">
 								
 							<img src="assets/img/paper2.png" >
-							<p class="paper-text-2">¿Que estas esperando?<br>
+							<p class="paper-text-2">Â¿Que estas esperando?<br>
 								JUGA por una buena causa</p>
 							
 						</div>

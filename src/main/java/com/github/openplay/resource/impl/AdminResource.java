@@ -1,9 +1,11 @@
 package com.github.openplay.resource.impl;
 
+import java.io.PrintWriter;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.ws.rs.Consumes;
@@ -34,7 +36,7 @@ public class AdminResource implements AdminResourceInterface {
 
 	@Autowired
 	private AdminService adminService; //reemplazar por el tag que se encuentra en AdminServiceImple : @Service("adminService")
-
+	
 	@GET
 	@Path("signup")
 	@Produces(MediaType.TEXT_HTML)
@@ -187,7 +189,20 @@ public class AdminResource implements AdminResourceInterface {
 								
 				adminService.saveBadge(newBadge);
 				return Response.ok().entity(new Viewable("/success")).build();
+	}	
+		
+	@GET
+	@Path("showBadges")
+	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+	@Produces(MediaType.TEXT_HTML)
+	public Response showBadges(){
+		List<Badge> badges = adminService.showBadges();
+		for(int i = 0; i < badges.size(); i++) {
+			System.out.println(badges.get(i).getBadgeId());
+            System.out.println(badges.get(i).getName());
+            System.out.println(badges.get(i).getValue());
+        }
+		return null;
 	}
-	
-	
+		
 }

@@ -7,6 +7,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link href="../../assets/css/bootstrap-united.css" rel="stylesheet" />
+<link href="../../assets/css/login.css" rel="stylesheet" />
+
 
 <style>
 .error {
@@ -23,9 +25,34 @@
 	margin: 16px;
 }
 </style>
-<title>Student Enrollment Login</title>
+<title>Iniciar Sesion</title>
 </head>
 <body>
+
+
+	<div class="navbar">
+	<div class="logo_header">
+			<section class="logo_title"></section>
+		</div>
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle" data-toggle="collapse"
+				data-target=".navbar-responsive-collapse">
+				<span class="icon-bar"></span> <span class="icon-bar"></span> <span
+					class="icon-bar"></span>
+			</button>
+		</div>
+		
+		<div class="menu_bar">
+			<a href="#" class="menu_bar-link">INICIO</a>
+			<a href="#" class="menu_bar-link">MI PERFIL</a>
+			<a href="#" class="menu_bar-link">JUGAR</a>
+			<a href="#" class="menu_bar-link">RANKINGS</a>
+			<input class="menu_bar-link search" type="text" name="searchIn" placeholder="Buscar">
+
+		</div>
+
+		<!-- /.nav-collapse -->
+	</div>
 	<script src="../../jquery-1.8.3.js">
 		
 	</script>
@@ -34,87 +61,77 @@
 		
 	</script>
 
-	<div class="navbar navbar-default">
 
-		<div class="navbar-header">
-			<button type="button" class="navbar-toggle" data-toggle="collapse"
-				data-target=".navbar-responsive-collapse">
-				<span class="icon-bar"></span> <span class="icon-bar"></span> <span
-					class="icon-bar"></span>
-			</button>
-		</div>
 
-		<div class="navbar-collapse collapse navbar-responsive-collapse">
-			<form class="navbar-form navbar-right">
-				<input type="text" class="form-control" placeholder="Search">
-			</form>
-			<ul class="nav navbar-nav navbar-right">
-				<li><a href="/GameAndGain">Home</a></li>
-				<li><a href="signup">Signup</a></li>
-				<li class="active"><a href="login">Login</a></li>
-				<li class="dropdown"><a href="#" class="dropdown-toggle"
-					data-toggle="dropdown">Explore<b class="caret"></b></a>
-					<ul class="dropdown-menu">
-						<li><a href="../../webapi/commonResource/rankingGeneral">Ver Ranking</a></li>
-						<li class="divider"></li>
-						<li><a href="#">Further Actions</a></li>
-					</ul></li>
-			</ul>
-		</div>
-		<!-- /.nav-collapse -->
-	</div>
+	
+	
+	<section class="login_section">
+		<table class="login_section-table">
+				<th class="login_section-table-header">Iniciar Sesion</th>
+		</table>
 
-	<div class="container">
-		<div class="jumbotron">
-			<div>
-				<h1>Welcome to Online Student Enrollment Login</h1>
-				<p>Login to explore the complete features!</p>
-			</div>
-		</div>
-
-		<div></div>
-	</div>
-
-	<div class="col-lg-6 col-lg-offset-3">
-		<div class="well">
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-6">
-						<form:form id="myForm" method="post" action="login"
-							class="bs-example form-horizontal">
-							<fieldset>
-								<legend>Student Enrollment Login Form</legend>
-
-								<div class="form-group">
-									<label for="emailAddressInput" class="col-lg-3 control-label">eMail</label>
-									<div class="col-lg-9">
-										<input type="text" class="form-control" name="emailAddress"
-											id="emailAddressInput" placeholder="Email" />
-									</div>
-								</div>
-
-								<div class="form-group">
-									<label for="passwordInput" class="col-lg-3 control-label">Password</label>
-									<div class="col-lg-9">
-										<input type="password" class="form-control"
-											name="password" id="passwordInput" placeholder="Password" />
-									</div>
-								</div>
-
-								<div class="col-lg-9 col-lg-offset-3">
+		<form:form id="myForm" class="login_section-form" method="post" action="login">
+			<label for="emailAddressInput" class="login_section-form-labels">Email</label>
+			<input type="text" class="login_section-form-inputs" name="emailAddress" id="emailAddressInput" placeholder="tomas.vuka23@me.com" value="${it.user.emailAddress}" />
+			
+			<label for="passwordInput" class="login_section-form-labels">Password</label>
+			<input type="password" class="login_section-form-inputs" name="password" id="passwordInput"  value="${it.user.password}" />					
+			
+		
+									
+			<div class="login_section-form-btns">
 									<button class="btn btn-default">Cancel</button>
 
 									<button class="btn btn-primary">Login</button>
 								</div>
+		</form:form>
+	</section>
+	
+	
+	<footer class="footer">
+		<img src="../../assets/img/gg.png" class="footer-img">
+		<p class="footer-paragraph">2017 © puto el que copia</p>
+		<div class="footer-div">
+				<table class="footer_table-about">
+					<th class="footer-table-about-header">About</th>
+					<tr class="footer-table-row">
+						<td class="footer-table-col">
+							<a href="" class="footers-titles-links">FAQ</a>
+						</td>
+					</tr>
+					<tr class="footer-table-row">
+						<td class="footer-table-col">
+							<a href="" class="footers-titles-links">Contact</a>
+						</td>
+					</tr>
+					<tr class="footer-table-row">
+						<td class="footer-table-col">
+							<a href="" class="footers-titles-links">Tutorial</a>
+						</td>
+					</tr>
+				</table>
+				<table class="footer_table-social">
+					<th class="footer-table-social-header">Follow Us</th>
+					<tr class="footer-table-row">
+						<td class="footer-table-col">
+							<a href="" class="social-links">
+								<img src="../../assets/img/face.png">
+							</a>
+							<a href="" class="social-links">
+								<img src="../../assets/img/twitter.png">
+							</a>
+							<a href="" class="social-links">
+								<img src="../../assets/img/gmail.png">
+							</a>
+							<a href="" class="social-links">
+								<img src="../../assets/img/email.png">
+							</a>
+						</td>
+					</tr>
+				</table>
+		 </div>
+		 </footer>
 
-							</fieldset>
-						</form:form>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-
-
+	
 </body>
 </html>

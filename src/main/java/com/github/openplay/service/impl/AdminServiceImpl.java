@@ -1,5 +1,7 @@
 package com.github.openplay.service.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -68,6 +70,11 @@ public class AdminServiceImpl implements  AdminService {
 	public BadgeInterface saveBadge(BadgeInterface badge) {
 		return badgeRepository.save((Badge)badge);
 	}	
+	
+	public List<Badge> showBadges(){
+		List<Badge> bdg = badgeRepository.showBadges();
+		return bdg;
+	}
 
 }
 

@@ -20,7 +20,11 @@
         <output for="range" class="output"></output>
         <input type="submit" name="submitBadge">
     </form>
-    <button>Edit Badge</button>
+    <form action="showBadges" method="post">
+    	<input type="submit" name="createBadge" label="editar Insignias" onclick="showTable('table1')">
+    </form>
+    
+
     <button>Delete Badge</button>
     
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>

@@ -32,9 +32,12 @@
 
 package com.github.openplay.service;
 
+import java.util.List;
+
 import com.github.openplay.model.BadgeInterface;
 import com.github.openplay.model.CommentInterface;
 import com.github.openplay.model.UserInterface;
+import com.github.openplay.model.impl.Badge;
 
 
 public interface AdminService {
@@ -45,5 +48,6 @@ public interface AdminService {
 	int findByUserRoleId(String emailAddress);
 	CommentInterface saveComment(CommentInterface comment);	
 	BadgeInterface saveBadge(BadgeInterface badge);	
+	List<Badge> showBadges();
 	//CommentInterface getComment(CommentInterface comment);
 }
