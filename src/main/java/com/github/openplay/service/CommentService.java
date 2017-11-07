@@ -32,11 +32,14 @@
 
 package com.github.openplay.service;
 
+import java.util.List;
+
 import com.github.openplay.model.CommentInterface;
+import com.github.openplay.model.impl.Comment;
 
 
 public interface CommentService {
 	
 	CommentInterface saveComment(CommentInterface comment);	
-	CommentInterface getComment(int users_UserIdTo);
+	List<Comment> getComment(int users_UserIdTo);
 }
