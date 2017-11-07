@@ -27,9 +27,8 @@ public class CommentServiceImpl implements  CommentService {
 	}
 	
 	@Transactional
-	public CommentInterface getComment(int users_UserIdTo) {
-		CommentInterface c = commentRepository.findUserComment(users_UserIdTo);
-		return c;
+	public List<Comment> getComment(int users_UserIdTo) { 
+		return commentRepository.findUserComment(users_UserIdTo);
 	}
 
 }
