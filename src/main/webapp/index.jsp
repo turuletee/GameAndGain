@@ -9,7 +9,7 @@
 		<div class="access_menu">
 			<a class="access_menu-link" href="webapi/adminResource/signup">Signup</a>
 			<a class="access_menu-link" href="webapi/adminResource/login">Login</a>
-			<a class="access_menu-link" href="webapi/adminResource/temporalComment">Comentario</a>
+			<a class="access_menu-link" href="webapi/commentResource/temporalComment">Comentario</a>
 		</div>
 		<div class="logo_header">
 			<section class="logo_title"></section>
@@ -93,7 +93,7 @@
 						<div class="paper-2">
 								
 							<img src="assets/img/paper2.png" >
-							<p class="paper-text-2">¿Que estas esperando?<br>
+							<p class="paper-text-2">Â¿Que estas esperando?<br>
 								JUGA por una buena causa</p>
 							
 						</div>
@@ -105,7 +105,7 @@
 	
 	<footer class="footer">
 		<img src="assets/img/gg.png" class="footer-img">
-		<p class="footer-paragraph">2017 © puto el que copia</p>
+		<p class="footer-paragraph">2017 Â© puto el que copia</p>
 		<div class="footer-div">
 				<table class="footer_table-about">
 					<th class="footer-table-about-header">About</th>
