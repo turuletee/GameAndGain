@@ -2,6 +2,8 @@ package com.github.openplay.resource.impl;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.ws.rs.Consumes;
 import javax.ws.rs.FormParam;
@@ -81,8 +83,11 @@ public class CommentResource implements CommentResourceInterface {
 			return Response.status(Status.PRECONDITION_FAILED).build();
 		}
 		
-		Comment c = (Comment) commentService.getComment(Integer.parseInt(users_UserIdTo));
-		System.out.printf(c.getComment());
+		List<Comment> comments = commentService.getComment(Integer.parseInt(users_UserIdTo));
+		for (int i=0; i<comments.size(); i++){
+			System.out.println(comments.get(i).getComment());
+			System.out.println(comments.get(i).getDate());
+		}
 		
 		return Response.ok().entity(new Viewable("/success")).build();
 	}
