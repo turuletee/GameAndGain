@@ -28,7 +28,7 @@
 		
 		<div class="menu_bar">
 			<a class="menu_bar-link" href="#">INICIO</a>
-			<a class="menu_bar-link" href="#">MI PERFIL</a>
+			<a class="menu_bar-link" href="webapi/adminResource/profile">MI PERFIL</a>
 			<a class="menu_bar-link" href="#">JUGAR</a>
 			<a class="menu_bar-link" href="#">RANKINGS</a>
 			<input class="menu_bar-link search" type="text" name="searchIn" placeholder="Buscar">
