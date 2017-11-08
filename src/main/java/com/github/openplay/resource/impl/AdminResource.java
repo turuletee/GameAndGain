@@ -1,6 +1,7 @@
 package com.github.openplay.resource.impl;
 
 import java.io.PrintWriter;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -22,12 +23,35 @@ import javax.xml.bind.annotation.XmlRootElement;
 import org.glassfish.jersey.server.mvc.Viewable;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.github.openplay.model.impl.Badge;
 import com.github.openplay.model.impl.Comment;
 import com.github.openplay.model.impl.User;
 import com.github.openplay.resource.AdminResourceInterface;
 import com.github.openplay.service.AdminService;
+
+import javax.servlet.http.HttpServletRequest; 
+import javax.servlet.http.HttpServletResponse; 
+import org.springframework.beans.factory.annotation.Autowired; 
+import org.springframework.stereotype.Controller; 
+import org.springframework.web.bind.annotation.ModelAttribute; 
+import org.springframework.web.bind.annotation.RequestMapping; 
+import org.springframework.web.bind.annotation.RequestMethod; 
+import org.springframework.web.servlet.ModelAndView;
+import java.lang.Object;
+import org.springframework.web.servlet.ModelAndView;
+import java.util.List;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 @Component
 @Path("adminResource")
@@ -190,19 +214,39 @@ public class AdminResource implements AdminResourceInterface {
 				adminService.saveBadge(newBadge);
 				return Response.ok().entity(new Viewable("/success")).build();
 	}	
-		
+	
+	@RequestMapping(value="#")
+    public ModelAndView viewBadges(Model model) {
+        Map<String, List<Badge>> badge =
+                new HashMap<String, List<Badge>>();
+       
+        badge.put("badge", adminService.showBadges());
+        System.out.println(new ModelAndView("badgeList", badge));
+        return new ModelAndView("badgeList", badge);
+        
+    }
+	
+	@RequestMapping(value = "/", method = RequestMethod.GET)
 	@GET
 	@Path("showBadges")
 	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
 	@Produces(MediaType.TEXT_HTML)
-	public Response showBadges(){
+	public List<Badge> showBadges(){
 		List<Badge> badges = adminService.showBadges();
 		for(int i = 0; i < badges.size(); i++) {
 			System.out.println(badges.get(i).getBadgeId());
             System.out.println(badges.get(i).getName());
-            System.out.println(badges.get(i).getValue());
+            System.out.println(badges.get(i).getValue()); 
         }
-		return null;
+		//badges.addAttribute("badgeName", badges.get(0).getName());
+		return badges;
+	}
+
+	@GET
+	@Path("profile")
+	@Produces(MediaType.TEXT_HTML)
+	public Response profile() {
+		return Response.ok(new Viewable("/profile")).build();
 	}
 		
 	@POST
@@ -243,4 +287,5 @@ public class AdminResource implements AdminResourceInterface {
 				
 				return Response.ok().entity(new Viewable("/success")).build();
 	}	
+
 }

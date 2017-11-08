@@ -1,6 +1,7 @@
 package com.github.openplay.resource.impl;
 import java.util.List;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -37,6 +38,9 @@ public class CampaignResource {
 		return campaign;
 	}
 	
+	
+	// localhost:8080/GameAndGain/webapi/campaigns/list
+	// XML, JSON, PlainText, HTML
 	@RequestMapping(value="/list", produces="application/json", method=RequestMethod.GET)
 	@ResponseBody
 	public List<Campaign> getAllCampaigns(){

@@ -17,6 +17,7 @@ import com.github.openplay.model.impl.Comment;
 @Repository("badgeRepository")
 public interface BadgeRepository extends JpaRepository<Badge, Long> {
 	
+
 	@Query("select b from Badge b") List<Badge> showBadges();
 
 	@Modifying

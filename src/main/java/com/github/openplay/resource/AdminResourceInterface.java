@@ -1,9 +1,12 @@
 package com.github.openplay.resource;
 
 import java.text.ParseException;
+import java.util.List;
 
 import javax.ws.rs.FormParam;
 import javax.ws.rs.core.Response;
+
+import com.github.openplay.model.impl.Badge;
 
 public interface AdminResourceInterface {
 
@@ -23,9 +26,9 @@ public interface AdminResourceInterface {
 	
 	public Response createComment();
 	
-	public Response showBadges();
-	
 	public Response deleteBadge(String badgeId) throws ParseException;
+
+	public List<Badge> showBadges();
 
 	public Response updateBadge(String badgeName, String badgeValue, String badgeId) throws ParseException ;
 	
