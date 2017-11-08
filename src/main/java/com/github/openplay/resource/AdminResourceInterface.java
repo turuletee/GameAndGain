@@ -24,7 +24,11 @@ public interface AdminResourceInterface {
 	public Response createComment();
 	
 	public Response showBadges();
+	
+	public Response deleteBadge(String badgeId) throws ParseException;
 
+	public Response updateBadge(String badgeName, String badgeValue, String badgeId) throws ParseException ;
+	
 	public Response createComment(String users_UserIdFrom, String users_UserIdTo, String date, String comment)throws ParseException; ;
 
 }

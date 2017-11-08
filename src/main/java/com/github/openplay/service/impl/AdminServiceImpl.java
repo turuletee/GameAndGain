@@ -37,9 +37,17 @@ public class AdminServiceImpl implements  AdminService {
 		return commentRepository.save((Comment)comment);
 	}
 	
-	//public CommentInterface getComment(CommentInterface comment) {
+	 //public CommentInterface getComment(CommentInterface comment) {
 	//	return commentRepository.findById((Comment)comment);
 	//}
+	
+	public BadgeInterface updateBadge(BadgeInterface badge){
+		return badgeRepository.save((Badge) badge);
+	};
+	
+	public void deleteBadge(Integer badgeId){
+		badgeRepository.deleteById(badgeId);
+	}
 
 	public boolean findByLogin(String userName, String password) {	
 		UserInterface usr = adminRepository.findByUserName(userName);

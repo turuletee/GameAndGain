@@ -49,5 +49,7 @@ public interface AdminService {
 	CommentInterface saveComment(CommentInterface comment);	
 	BadgeInterface saveBadge(BadgeInterface badge);	
 	List<Badge> showBadges();
+	BadgeInterface updateBadge(BadgeInterface badge);
+	void deleteBadge(Integer badgeId);
 	//CommentInterface getComment(CommentInterface comment);
 }

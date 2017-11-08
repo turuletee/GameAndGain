@@ -205,4 +205,42 @@ public class AdminResource implements AdminResourceInterface {
 		return null;
 	}
 		
+	@POST
+	@Path("updateBadge")
+	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+	@Produces(MediaType.TEXT_HTML)
+	public Response updateBadge(
+			
+			@FormParam("update_badgeName") String badgeName,
+			@FormParam("update_badgeValue") String badgeValue,
+			@FormParam("update_badgeId") String badgeId)
+			throws ParseException {
+				if (badgeName == null||badgeId == null||badgeValue == null) {
+					return Response.status(Status.PRECONDITION_FAILED).build();
+				}
+				Badge newBadge = new Badge();
+				newBadge.setName(badgeName);
+				newBadge.setValue(Integer.parseInt(badgeValue));
+				newBadge.setBadgeId(Integer.parseInt(badgeId));
+								
+				adminService.updateBadge(newBadge);
+				
+				return Response.ok().entity(new Viewable("/success")).build();
+	}	
+	
+	@POST
+	@Path("deleteBadge")
+	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+	@Produces(MediaType.TEXT_HTML)
+	public Response deleteBadge(
+			@FormParam("delete_badgeId") String badgeId)
+			throws ParseException {
+				if (badgeId == null) {
+					return Response.status(Status.PRECONDITION_FAILED).build();
+				}
+
+				adminService.deleteBadge(Integer.parseInt(badgeId));
+				
+				return Response.ok().entity(new Viewable("/success")).build();
+	}	
 }
