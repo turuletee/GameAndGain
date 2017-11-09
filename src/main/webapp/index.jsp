@@ -10,6 +10,7 @@
 			<a class="access_menu-link" href="webapi/adminResource/signup">Signup</a>
 			<a class="access_menu-link" href="webapi/adminResource/login">Login</a>
 			<a class="access_menu-link" href="webapi/commentResource/temporalComment">Comentario</a>
+			<a class="access_menu-link" href="webapi/rankingResource/getRanking">Ranking</a>
 		</div>
 		<div class="logo_header">
 			<section class="logo_title"></section>
