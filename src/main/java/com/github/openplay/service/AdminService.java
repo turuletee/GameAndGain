@@ -40,4 +40,5 @@ public interface AdminService {
 	boolean findByLogin(String userName, String password);
 	boolean findByUserName(String userName);	
 	UserInterface save(UserInterface user) ;
+	UserInterface findByName(String name) ;
 }
