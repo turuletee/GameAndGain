@@ -6,9 +6,9 @@ import com.github.openplay.model.impl.User;
 
 public interface CommentInterface {
 
-	public int geCommentId();
+	public int getCommentId();
 
-	public void seCommentId(int commentId);
+	public void setCommentId(int commentId);
 
 	public int getUsers_userIdFrom();
 
