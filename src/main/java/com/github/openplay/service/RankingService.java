@@ -35,10 +35,13 @@ package com.github.openplay.service;
 import java.util.List;
 
 import com.github.openplay.model.impl.CampaignsHasUsers;
+import com.github.openplay.model.impl.UsersReceivesBadges;
 
 
 public interface RankingService {
 	
 	List<CampaignsHasUsers> getRanking(String name);
+	List<UsersReceivesBadges> getBadge(String name);
 	
 }
+
