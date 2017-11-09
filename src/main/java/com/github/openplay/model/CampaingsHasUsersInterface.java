@@ -17,4 +17,9 @@ public interface CampaingsHasUsersInterface {
 
 	public void setUser(User user);
 	
+	public int getCampaigns_Score();
+	
+	public void setCampaigns_Score(int campaigns_Score);
+	
 }
+
