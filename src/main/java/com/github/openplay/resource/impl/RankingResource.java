@@ -21,6 +21,7 @@ import org.springframework.stereotype.Component;
 
 import com.github.openplay.model.impl.CampaignsHasUsers;
 import com.github.openplay.model.impl.Comment;
+import com.github.openplay.model.impl.UsersReceivesBadges;
 import com.github.openplay.service.CommentService;
 import com.github.openplay.service.RankingService;
 
@@ -51,13 +52,21 @@ public class RankingResource {
 			return Response.status(Status.PRECONDITION_FAILED).build();
 		}
 		
+		List<UsersReceivesBadges> badges = rankingService.getBadge(name);
 		List<CampaignsHasUsers> scoresR = rankingService.getRanking(name);
 		int scoreGeneral = 0;
+		int scoreBagdes = 0;
+		
+		for (int i=0; i<badges.size(); i++){
+			scoreBagdes = scoreBagdes + badges.get(i).getValue();
+		}
 		
 		for (int i=0; i<scoresR.size(); i++){
 			scoreGeneral = scoreGeneral + scoresR.get(i).getCampaigns_Score();
-			System.out.println("El scores general de este usuario es: " + scoreGeneral);
 		}
+		
+		System.out.println("El scores general de este usuario es: " + scoreGeneral);
+		System.out.println("El scores de los trofeos es: " + scoreBagdes);
 
 		return Response.ok().entity(new Viewable("/success")).build();
 	}
