@@ -61,11 +61,11 @@ public class Comment implements CommentInterface {
 	private User userto;
 	*/
 	
-	public int geCommentId() {
+	public int getCommentId() {
 		return commentId;
 	}
 
-	public void seCommentId(int commentId) {
+	public void setCommentId(int commentId) {
 		this.commentId = commentId;
 	}
 
