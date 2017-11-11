@@ -13,5 +13,16 @@
 		<br>
 		<input type="submit" value="Traer" id = "nameProjectT"/>
 	</form>
+	
+	<form action="updateDonor" method="post">
+		<label>Nombre del usuario:  </label>
+		<input type="text" value="${it.user.name}" name="name" id = "nameId" placeholder="Pepe"/>
+		<label>Nombre de la obra:  </label>
+		<input type="text" value="${it.project.project}" name="project" id = "projectId" placeholder="Una obra"/>
+		<label>Fecha:  </label>
+		<input type="text" value="${it.donations.date}" name="date" id = "dateId" placeholder="Fecha"/>
+		<br>
+		<input type="submit" value="Guardar" id = "projectT"/>
+	</form>
 </body>
-</html>
+</
