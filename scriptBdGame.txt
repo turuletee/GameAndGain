@@ -1,3 +1,4 @@
+
 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
@@ -423,12 +424,8 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `game`.`donations` (
 	`donationId` INT NOT NULL AUTO_INCREMENT,
 	`date` DATE NOT NULL,
-	`description` VARCHAR(300) NULL,
 	`projects_ProjectId` INT UNSIGNED NOT NULL,
-	`projects_Users_UserId` INT NOT NULL,
-	`projects_Users_Interests_InterestId` INT NOT NULL,
-	`projects_Users_Roles_RoleId` INT NOT NULL,
-	`projects_Project_States_Project_StateId` INT NOT NULL,
+	`users_UserId` INT NOT NULL,
 	PRIMARY KEY (`donationId`),
 	CONSTRAINT `fk_Donations_Projects1`
 		FOREIGN KEY (`projects_ProjectId`)
@@ -436,7 +433,7 @@ CREATE TABLE IF NOT EXISTS `game`.`donations` (
 		ON DELETE NO ACTION
 		ON UPDATE NO ACTION,
 	CONSTRAINT `fk_Donations_Users1`
-		FOREIGN KEY (`projects_Users_UserId`)
+		FOREIGN KEY (`users_UserId`)
 		REFERENCES `game`.`users` (`userId`)
 		ON DELETE NO ACTION
 		ON UPDATE NO ACTION)
@@ -537,4 +534,6 @@ INSERT INTO `game`.`campaign_Types` (description) VALUES ('Educative');
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+
+
 
