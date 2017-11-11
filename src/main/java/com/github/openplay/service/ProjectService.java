@@ -32,10 +32,15 @@
 
 package com.github.openplay.service;
 
+import java.util.Date;
+
+import com.github.openplay.model.impl.Donations;
 import com.github.openplay.model.impl.ProjectStates;
 
 public interface ProjectService {
 	
 	public ProjectStates getState(String nameProject);
+	
+	public Donations updateDonor(String nameProject, String name, Date date);
 
 }
