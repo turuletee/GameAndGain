@@ -34,6 +34,9 @@ public class CampaignsHasUsers implements CampaingsHasUsersInterface{
 	@ManyToOne
 	@JoinColumn(name="users_UserId")
 	private User user;
+	
+	@NotNull
+	private int campaigns_Score;
 
 	public Integer getIdCampaigns_has_Users() {
 		return idCampaigns_has_Users;
@@ -59,6 +62,14 @@ public class CampaignsHasUsers implements CampaingsHasUsersInterface{
 
 	public void setUser(User user) {
 		this.user = user;
+	}
+	
+	public int getCampaigns_Score(){
+		return campaigns_Score;
+	}
+	
+	public void setCampaigns_Score(int campaigns_Score) {
+		this.campaigns_Score = campaigns_Score;
 	}
 		
 }
