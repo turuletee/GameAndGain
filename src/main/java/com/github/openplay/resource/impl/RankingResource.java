@@ -68,7 +68,7 @@ public class RankingResource {
 		System.out.println("El scores general de este usuario es: " + scoreGeneral);
 		System.out.println("El scores de los trofeos es: " + scoreBagdes);
 
-		return Response.ok().entity(new Viewable("/success")).build();
+		return Response.ok().entity(new Viewable("/ranking")).build();
 	}
 
 }
